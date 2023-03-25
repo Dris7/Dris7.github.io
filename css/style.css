@@ -4,7 +4,7 @@
 :root {
   --header-height: 3rem;
   /*===== Colores =====*/
-  --first-color: #9d8bda;
+  --first-color: #46D4D6;
   --dark-color: #212529;
   --dark-color-alt: #282B3A;
   --white-color: #ffffff;
@@ -307,9 +307,9 @@ img {
 }
 
 .main .homecontaint img {
-  max-width: 300px;
-  width: 50%;
-  min-width: 150px;
+  max-width: 350px;
+  width: 560%;
+  min-width: 200px;
 }
 
 .static {
