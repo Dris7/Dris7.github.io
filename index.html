@@ -26,11 +26,11 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
    
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="css_light/style.css" id="light-mode">
+  <link rel="stylesheet" href="css_light/style.css" id="light-mode" disabled>
  
 
 	<!-- Link to the dark mode CSS file -->
-	<link rel="stylesheet" href="css/style.css" id="dark-mode" disabled>
+	<link rel="stylesheet" href="css/style.css" id="dark-mode" >
   <script>
 		function toggleMode() {
 			var lightMode = document.getElementById('light-mode');
@@ -70,7 +70,7 @@
         </div>
         <div style="font-size: fit;text-align: center;">
 
-          <input type="checkbox" id="darkmode-toggle" onclick="toggleMode()"/>
+          <input type="checkbox" checked id="darkmode-toggle" onclick="toggleMode()"/>
 		<label style="font-size: 1.5rem; " for="darkmode-toggle">
 			<svg version="1.1" class="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
