@@ -5,65 +5,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  
-  <!-- Clickjacking Protection -->
-  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'" />
-
-  <!-- Prevent Content Type sniffing -->
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-
-
-
-  <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'none'" />
-   <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
-
   <!-- Primary Meta Tags -->
-  <title>BerberVam | Portfolio website</title>
+  <title>BerberCoder | Portfolio website</title>
   <!--basic meta tags-->
   <meta name="title" content="Driss Atkou | Portfolio website ">
-  <meta name="description" content="Hi, I am Driss Atkou, welcome to my website, I am a software engineering student, you can contact me through mail drissatkou7@gmail.com or using contact form.">
-  <meta property="og:image" content="./images/metapic.png">
-
+  <meta name="description"
+    content="Hi, I am Driss Atkou , welcome to my website, I am a software engineering student  , u can contact me through mail drissatkou7@gmail.com or using contact form.">
+  <meta property="og:image"
+    content="./images/metapic.png">
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.facebook.com/david.lamdon.1/">
   <meta property="og:title" content="Driss Atkou | Portfolio website ">
-  <meta property="og:description" content="Hi, I am Driss Atkou, welcome to my website, I am a software engineering student, you can contact me through mail drissatkou7@gmail.com or using contact form.">
-  <meta property="og:image" content="./images/metapic.png">
+  <meta property="og:description"
+    content="Hi, I am Driss Atkou , welcome to my website, I am a software engineering student  , u can contact me through mail drissatkou7@gmail.com or using contact form.">
+  <meta property="og:image"
+    content="./images/metapic.png">
 
   <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-
+   
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="css_light/style.css" id="light-mode" disabled>
+ 
 
-  <!-- Link to the dark mode CSS file -->
-  <link rel="stylesheet" href="css/style.css" id="dark-mode">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-09T2N29PCQ"></script>
+	<!-- Link to the dark mode CSS file -->
+	<link rel="stylesheet" href="css/style.css" id="dark-mode" >
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+		function toggleMode() {
+			var lightMode = document.getElementById('light-mode');
+			var darkMode = document.getElementById('dark-mode');
+			if (lightMode.disabled) {
+				lightMode.disabled = false;
+				darkMode.disabled = true;
+			} else {
+				lightMode.disabled = true;
+				darkMode.disabled = false;
+			}
+		}
+	</script>
 
-    gtag('config', 'G-09T2N29PCQ');
-  </script>
-
-  <script>
-    function toggleMode() {
-      var lightMode = document.getElementById('light-mode');
-      var darkMode = document.getElementById('dark-mode');
-      if (lightMode.disabled) {
-        lightMode.disabled = false;
-        darkMode.disabled = true;
-      } else {
-        lightMode.disabled = true;
-        darkMode.disabled = false;
-      }
-    }
-  </script>
 </head>
 
 
