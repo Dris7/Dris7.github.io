@@ -231,7 +231,7 @@ img {
   cursor: pointer;
 }
 
-.nav__img {
+/* .nav__img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -246,7 +246,7 @@ img {
 .nav__img img {
   width: 46px;
 }
-
+ */
 .nav__name {
   display: block;
   color: var(--white-color);
@@ -328,7 +328,7 @@ img {
     -ms-flex-align: center;
     align-items: center;
   }
-  .nav__img {
+/*   .nav__img {
     width: 32px;
     height: 32px;
     margin-right: .5rem;
@@ -339,7 +339,7 @@ img {
   }
   .nav__img img {
     width: 26px;
-  }
+  } */
   .nav__list {
     display: -webkit-box;
     display: -ms-flexbox;
