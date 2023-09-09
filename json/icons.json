@@ -1,0 +1,160 @@
+{
+    "icons": [
+      {
+        "name": "aws",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+        "alt": "aws"
+      },
+      {
+        "name": "azure",
+        "src": "https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg",
+        "alt": "azure"
+      },
+      {
+        "name": "bash",
+        "src": "https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg",
+        "alt": "bash"
+      },
+      {
+        "name": "bootstrap",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg",
+        "alt": "bootstrap"
+      },
+      {
+        "name": "css3",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
+        "alt": "css3"
+      },
+      {
+        "name": "flask",
+        "src": "https://img.icons8.com/ios/50/000000/flask.png",
+        "alt": "flask"
+      },
+      {
+        "name": "docker",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
+        "alt": "docker"
+      },
+      {
+        "name": "figma",
+        "src": "https://www.vectorlogo.zone/logos/figma/figma-icon.svg",
+        "alt": "figma"
+      },
+      {
+        "name": "firebase",
+        "src": "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
+        "alt": "firebase"
+      },
+      {
+        "name": "framer",
+        "src": "https://www.vectorlogo.zone/logos/framer/framer-icon.svg",
+        "alt": "framer"
+      },
+      {
+        "name": "git",
+        "src": "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg",
+        "alt": "git"
+      },
+      {
+        "name": "ioS",
+        "src": "https://img.icons8.com/ios-filled/500/null/mac-os.png",
+        "alt": "ioS"
+      },
+      {
+        "name": "html5",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
+        "alt": "html5"
+      },
+      {
+        "name": "illustrator",
+        "src": "https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg",
+        "alt": "illustrator"
+      },
+      {
+        "name": "javascript",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+        "alt": "javascript"
+      },
+      {
+        "name": "linux",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/linux/linux-original.svg",
+        "alt": "linux"
+      },
+      {
+        "name": "matlab",
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png",
+        "alt": "matlab"
+      },
+      {
+        "name": "mongodb",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
+        "alt": "mongodb"
+      },
+      {
+        "name": "mysql",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
+        "alt": "mysql"
+      },
+      {
+        "name": "kubernetes",
+        "src": "https://img.icons8.com/color/480/null/kubernetes.png",
+        "alt": "kubernetes"
+      },
+      {
+        "name": "kotlin",
+        "src": "https://img.icons8.com/color/480/null/kotlin.png",
+        "alt": "kotlin"
+      },
+      {
+        "name": "C++",
+        "src": "https://img.icons8.com/color/480/null/c-plus-plus-logo.png",
+        "alt": "C++"
+      },
+      {
+        "name": "oracle",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/oracle/oracle-original.svg",
+        "alt": "oracle"
+      },
+      {
+        "name": "photoshop",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg",
+        "alt": "photoshop"
+      },
+      {
+        "name": "postgresql",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg",
+        "alt": "postgresql"
+      },
+      {
+        "name": "postman",
+        "src": "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
+        "alt": "postman"
+      },
+      {
+        "name": "python",
+        "src": "https://githubraw.com/devicons/devicon/master/icons/python/python-original.svg",
+        "alt": "python"
+      },
+      {
+        "name": "java",
+        "src": "https://img.icons8.com/color/480/null/java-coffee-cup-logo--v1.png",
+        "alt": "java"
+      },
+      {
+        "name": "sqlite",
+        "src": "https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg",
+        "alt": "sqlite"
+      },
+      {
+        "name": "swift",
+        "src": "https://img.icons8.com/color/48/null/swift.png",
+        "alt": "swift"
+      },
+      {
+        "name": "tensorflow",
+        "src": "https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg",
+        "alt": "tensorflow"
+      }
+    ]
+  }
+  

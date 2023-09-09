@@ -15,86 +15,32 @@
   <div class="aboutme skills" id="Skills">
     <div class="row">
       <div class="section s_image">
-        <div class="row">
-          <div class="skils"><img
-              src="https://githubraw.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
-              alt="aws" width="40" height="40" /></div>
-          <div class="skils"><img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg"
-              alt="azure" width="40" height="40" /></div>
-          <div class="skils"><img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash"
-              width="40" height="40" /></div>
-          <div class="skils"><img
-              src="https://githubraw.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg"
-              alt="bootstrap" width="40" height="40" /></div>
-          <div class="skils"><img
-              src="https://githubraw.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3"
-              width="40" height="40" /></div>
-          <div class="skils"><img src="https://githubraw.com/devicons/devicon/master/icons/django/django-plain.svg"
-              alt="django" width="40" height="40" /></div>
-          <div class="skils"><img
-              src="https://githubraw.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker"
-              width="40" height="40" /></div>
-          <div class="skils"><img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40"
-              height="40" /></div>
-          <div class="skils"><img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase"
-              width="40" height="40" /></div>
-          <div class="skils"><img src="https://www.vectorlogo.zone/logos/framer/framer-icon.svg" alt="framer" width="40"
-              height="40" /></div>
-          <div class="skils"><img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40"
-              height="40" /></div>
-          <div class="skils"><img src="https://img.icons8.com/ios-filled/500/null/mac-os.png" alt="ioS"
-              width="40" height="40" /></div>
-          <div class="skils"><img
-              src="https://githubraw.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5"
-              width="40" height="40" /></div>
-          <div class="skils"><img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg"
-              alt="illustrator" width="40" height="40" /></div>
-          <div class="skils"><img
-              src="https://githubraw.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-              alt="javascript" width="40" height="40" /></div>
-          <div class="skils"><img src="https://githubraw.com/devicons/devicon/master/icons/linux/linux-original.svg"
-              alt="linux" width="40" height="40" /></div>
-          <div class="skils"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="matlab"
-              width="40" height="40" /></div>
-          <div class="skils"><img
-              src="https://githubraw.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg"
-              alt="mongodb" width="40" height="40" /></div>
-          <div class="skils"><img
-              src="https://githubraw.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql"
-              width="40" height="40" /></div>
-              <div class="skils"><img
-                src="https://img.icons8.com/color/480/null/kubernetes.png"alt="kubernetes"
-                width="40" height="40" /></div>
-              <div class="skils"><img
-                src="https://img.icons8.com/color/480/null/kotlin.png"alt="mysql"
-                width="40" height="40" /></div>
-              <div class="skils"><img
-                src="https://img.icons8.com/color/480/null/c-plus-plus-logo.png" alt="C++"
-                width="40" height="40" /></div>
-          <div class="skils"><img src="https://githubraw.com/devicons/devicon/master/icons/oracle/oracle-original.svg"
-              alt="oracle" width="40" height="40" /></div>
-          <div class="skils"><img src="https://githubraw.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg"
-              alt="photoshop" width="40" height="40" /></div>
-          <div class="skils"><img
-              src="https://githubraw.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg"
-              alt="postgresql" width="40" height="40" /></div>
-          <div class="skils"><img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman"
-              width="40" height="40" /></div>
+        <div class="row"  id="iconContainer">
          
-          <div class="skils"><img src="https://githubraw.com/devicons/devicon/master/icons/python/python-original.svg"
-              alt="python" width="40" height="40" /></div>
-          <div class="skils"><img src="https://img.icons8.com/color/480/null/java-coffee-cup-logo--v1.png" alt="java"
-              width="40" height="40" /></div>
-          <div class="skils"><img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40"
-              height="40" /></div>
-          <div class="skils"><img src="https://img.icons8.com/color/48/null/swift.png" alt="swift"
-              width="40" height="40" /></div>
-          <div class="skils"><img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg"
-              alt="tensorflow" width="40" height="40" /></div>
         </div>
       </div>
     </div>
   </div>
 </body>
+<script>
+    // Load icons from the JSON file and create image elements
+    fetch('json/icons.json')
+      .then(response => response.json())
+      .then(data => {
+        const iconContainer = document.getElementById('iconContainer');
+        data.icons.forEach(icon => {
+            const skils = document.createElement('div')
+            skils.className = 'skils'
+          const img = document.createElement('img');
+          img.src = icon.src;
+          img.alt = icon.alt;
+          img.width = 40;
+          img.height = 40;
+          skils.appendChild(img)
+          iconContainer.appendChild(skils);
+        });
+      })
+      .catch(error => console.error(error));
+  </script>
 
 </html>

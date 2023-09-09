@@ -1,0 +1,28 @@
+[
+    {
+      "title": "Arduino Water Tank Car",
+      "description": "Project involves building an automated watering vehicle using an Arduino board to control various aspects of the vehicle. The vehicle is equipped with a water tank and sensors to detect soil moisture levels. When the soil is detected to be dry, the vehicle moves to the plant location and dispenses the necessary amount of water.",
+      "githubLink": "https://github.com/Dris7/Arduino-Water-Tank-Car"
+    },
+    {
+      "title": "Air Traffic Control",
+      "description": "Experience the thrill of air traffic control with our cutting-edge web application developed using Java and multithreading technology. It features Dijkstra's shortest path algorithm, an API to get JSON data from the server to the client, auto-weather handling, and a cool design using the Canvas API. Get a seamless and immersive experience with our real-time simulation.",
+      "githubLink": "https://github.com/Dris7/Air-Traffic-Control"
+    },
+    {
+      "title": "Book Store",
+      "description": "This is an online book store built using the following technologies:\n- HTML/CSS/JavaScript: for the front-end web application\n- ASP.NET: for the server-side code\n- Microsoft SQL Server: for the back-end database\n- Google Books API: for book data and metadata",
+      "githubLink": "https://github.com/Dris7/BookStore"
+    },
+    {
+      "title": "Moflex",
+      "description": "Developed a movie guide app named 'Moflex' that is published on the Google Play Store. The app uses the themoviedb API for data and integrates Firebase for authentication. It also features a stylish design and cool search features.",
+      "githubLink": "https://play.google.com/store/apps/details?id=com.movies.moflex"
+    },
+    {
+      "title": "Smart calculator (Smoorty)",
+      "description": "Showcased creativity and technical proficiency by designing and developing a smart calculator Android app and iOS (Java/Flutter), leveraging a server-side API (Flask) for handwriting detection and a robust calculation engine, delivering an exceptional user experience.",
+      "githubLink": "https://github.com/Dris7/Smoorty"
+    }
+  ]
+  
