@@ -126,6 +126,11 @@
         "alt": "postgresql"
       },
       {
+        "name": "spring boot",
+        "src": "https://img.icons8.com/color/96/spring-logo.png",
+        "alt": "spring boot"
+      },
+      {
         "name": "postman",
         "src": "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
         "alt": "postman"
@@ -154,6 +159,11 @@
         "name": "tensorflow",
         "src": "https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg",
         "alt": "tensorflow"
+      },
+      {
+        "name": "Xcode",
+        "src": "https://img.icons8.com/color/96/xcode.png",
+        "alt": "xcode"
       }
     ]
   }
