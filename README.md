@@ -14,7 +14,7 @@ Certainly! You can include the architecture diagram in the README's Overview sec
 
 Below is the architecture diagram illustrating the structure and components of the portfolio project:
 
-![Architecture Diagram](https://raw.githubusercontent.com/Dris7/Dris7.github.io/main/files/Edit%20Diagram.html)
+![Architecture Diagram](https://raw.githubusercontent.com/Dris7/Dris7.github.io/main/files/download.png)
 
 ---
 
