@@ -6,6 +6,18 @@ Welcome to the repository for my personal portfolio website, hosted at [www.dris
 
 This portfolio is designed to provide a comprehensive look at my professional journey, highlighting my technical skills, completed projects, and personal achievements. It serves as a platform to connect with potential employers, clients, and fellow professionals in the industry.
 
+Certainly! You can include the architecture diagram in the README's Overview section by embedding it as an image. Since the diagram is hosted in a GitHub repository, you can use the raw content link to display it directly in the README file. Here's how you can modify the Overview section to include the architecture diagram:
+
+---
+
+### Architecture Diagram
+
+Below is the architecture diagram illustrating the structure and components of the portfolio project:
+
+![Architecture Diagram](https://raw.githubusercontent.com/Dris7/Dris7.github.io/main/files/Edit%20Diagram.html)
+
+---
+
 ## Features
 
 - **Responsive Design:** The website is fully responsive and provides an optimal viewing experience across various devices and screen sizes.
