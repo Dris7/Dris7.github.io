@@ -20,6 +20,16 @@
         "src": "https://githubraw.com/devicons/devicon/master/icons/python/python-original.svg",
         "alt": "python"
       },
+       {
+        "name": "docker",
+        "src": "https://img.icons8.com/color/96/docker.png",
+        "alt": "docker"
+      },
+       {
+        "name": "ansible",
+        "src": "https://img.icons8.com/color/96/ansible.png",
+        "alt": "ansible"
+      },
       {
         "name": "java",
         "src": "https://img.icons8.com/color/480/null/java-coffee-cup-logo--v1.png",
@@ -44,11 +54,6 @@
         "name": "tensorflow",
         "src": "https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg",
         "alt": "tensorflow"
-      },
-      {
-        "name": "docker",
-        "src": "https://img.icons8.com/color/96/docker.png",
-        "alt": "docker"
       },
       {
         "name": "selenium",
