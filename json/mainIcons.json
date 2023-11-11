@@ -11,9 +11,9 @@
         "alt": "android studio"
       },
       {
-        "name": "Xcode",
-        "src": "https://img.icons8.com/color/96/xcode.png",
-        "alt": "Xcode"
+        "name": "kubernetes",
+        "src": "https://img.icons8.com/color/96/kubernetes.png",
+        "alt": "kubernetes"
       },
       {
         "name": "python",
@@ -46,9 +46,9 @@
         "alt": "tensorflow"
       },
       {
-        "name": "bootstrap",
-        "src": "https://githubraw.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg",
-        "alt": "bootstrap"
+        "name": "docker",
+        "src": "https://img.icons8.com/color/96/docker.png",
+        "alt": "docker"
       },
       {
         "name": "selenium",
