@@ -38,11 +38,11 @@ To set up this project locally, follow these steps:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/Dris7/Dris7.github.io.git
+   git clone https://github.com/Dris7/Dris7.github.io.git portfolio
    ```
 2. Navigate to the project directory:
    ```
-   cd your-repo-name
+   cd portfolio
    ```
 3. Open the `index.html` file in your browser to view the website.
 
