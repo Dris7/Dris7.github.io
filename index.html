@@ -1,362 +1,1102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <!-- Primary Meta Tags -->
-  <title>Vamⵣ | Portfolio website</title>
-  <!--basic meta tags-->
-  <meta name="title" content="Driss Atkou | Portfolio website ">
-  <meta name="description"
-    content="Hi, I am Driss Atkou , welcome to my website, I am a software engineering student  , u can contact me through mail drissatkou7@gmail.com or using contact form.">
-  <meta property="og:image"
-    content="./images/metapic.png">
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.facebook.com/david.lamdon.1/">
-  <meta property="og:title" content="Driss Atkou | Portfolio website ">
-  <meta property="og:description"
-    content="Hi, I am Driss Atkou , welcome to my website, I am a software engineering student  , u can contact me through mail drissatkou7@gmail.com or using contact form.">
-  <meta property="og:image"
-    content="./images/metapic.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NerdsDev - Professional Software Solutions</title>
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-   
-  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="css_light/style.css" id="light-mode" disabled>
- 
+    <style>
+        :root {
+            --primary: #11567E;
+            --primary-light: #1a6fa3;
+            --primary-dark: #0a3c59;
+            --primary-gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --secondary: #2a9fd6;
+            --accent: #FFD700;
+            --background: #f8fafc;
+            --text: #334155;
+            --text-light: #64748b;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+        }
 
-	<!-- Link to the dark mode CSS file -->
-	<link rel="stylesheet" href="css/style.css" id="dark-mode" >
-  <script>
-		function toggleMode() {
-			var lightMode = document.getElementById('light-mode');
-			var darkMode = document.getElementById('dark-mode');
-			if (lightMode.disabled) {
-				lightMode.disabled = false;
-				darkMode.disabled = true;
-			} else {
-				lightMode.disabled = true;
-				darkMode.disabled = false;
-			}
-		}
-	</script>
-	<style>
-		body {
-  transition: background-color 0.3s ease, color 0.3s ease !important ;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        /* Enhanced Header */
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(17, 86, 126, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 45px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover img {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--primary-gradient);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1920/1080') center/cover;
+            opacity: 0.1;
+            mix-blend-mode: soft-light;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 1s ease 0.2s;
+        }
+
+        .hero-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 0 0.5rem;
+        }
+        .hero-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Services Section */
+        #services {
+            padding: 4rem 2rem;
+            background: var(--surface);
+        }
+
+        .services .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(17, 86, 126, 0.08);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon img {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        #about {
+            padding: 8rem 2rem;
+            background: var(--surface);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        /* Stats grid inside About */
+        .stats-grid {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            justify-content: center;
+        }
+
+        .stat-card {
+            background: #f0f4f8;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            margin-top: 0.5rem;
+            color: var(--text-light);
+        }
+
+        /* Featured Projects */
+        #projects {
+            padding: 4rem 2rem;
+            background: var(--background);
+        }
+
+        .featured-projects .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(17, 86, 126, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(17, 86, 126, 0.12);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(17, 86, 126, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 4rem 2rem;
+            background: var(--surface);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-container .section-title {
+            margin-bottom: 2rem;
+        }
+
+        #contactForm {
+            display: block;
+            margin-top: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        #contactForm .btn {
+            margin-top: 1.5rem;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #contactForm .btn:hover {
+            background: var(--primary-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 6rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .footer-col p {
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-links li a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 4rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--surface);
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* ========== CONTACT FORM IMPROVEMENTS ========== */
+.contact-section {
+  padding: 5rem 2rem;
+  background: #ffffff;
+  border-top: 1px solid var(--border);
 }
-				.nav__img {
-			  -webkit-box-pack: center;
-			      -ms-flex-pack: center;
-			          justify-content: center;
-			  padding-top: .25rem;
-			  margin-bottom: .8rem;
-			  width: 56px;
-			  height: 56px;
-			  border-radius: 50%;
-			  overflow: hidden;
-			}
-			
-			.nav__img img {
-			  width: 46px;
-			}
-			
-			
-			
-			/*===== MEDIA QUERIES =====*/
-			@media screen and (min-width: 768px) {
-			  
-			  .nav__img {
-			    width: 32px;
-			    height: 32px;
-			    margin-right: .5rem;
-			    margin-bottom: 0;
-			    -webkit-box-align: center;
-			    -ms-flex-align: center;
-			    align-items: center;
-			  }
-			  .nav__img img {
-			    width: 26px;
-			  }
-			  
-			}
-		</style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EHP7D868M5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-EHP7D868M5');
-</script>
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
 
+.contact-subtitle {
+  margin: 1rem auto 3rem;
+  max-width: 600px;
+  color: var(--text-light);
+}
+
+.contact-form {
+  background: #f8fcfe;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(17, 86, 126, 0.08);
+  text-align: left; /* keep labels left-aligned */
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Single column on mobile */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.form-group .required {
+  color: var(--accent);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9ca3af; /* neutral placeholder color */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 2px rgba(26, 111, 163, 0.2);
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.btn-submit {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+}
+/* ========== WHO WE ARE SECTION IMPROVEMENTS ========== */
+.about-section {
+  padding: 6rem 2rem;
+  background: #f3f9fc; /* Softer background */
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.who-we-are-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.who-we-are-header .section-subtitle {
+  max-width: 700px;
+  margin: 0.75rem auto;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.about-icon {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+  float: left;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 3px 3px rgba(0,0,0,0.1));
+}
+
+.mission-vision {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(17, 86, 126, 0.08);
+}
+
+.mission-vision h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+
+.mission-vision p {
+  line-height: 1.5;
+  margin-top: 0.3rem;
+}
+
+.why-choose-us {
+  background: #eef7fd;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(17, 86, 126, 0.08);
+}
+
+.why-choose-us h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+}
+
+.why-choose-us ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.why-choose-us li {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.why-choose-us li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(17, 86, 126, 0.1);
+}
+
+/* Stats styling remains similar, or adjust as needed */
+.stats-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.social-links a {
+    color: #f0f0f0; /* Light gray color to match a dark footer */
+    text-decoration: none; /* Remove underline */
+  }
+
+  .social-links a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+ </style>
 </head>
-
-
 <body>
-  <header class="header">
-    <a href="#" class="header__logo">Vamⵣ</a>
-     
-    <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
-  
-    <nav class="nav" id="nav-menu">
-      <div class="nav__content bd-grid">
-
-        <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
-
-        <div class="nav__perfil">
-          <div class="nav__img">
-            <img src="images/Frame 7.png" alt="">
-          </div>
-
-          <div>
-            <a href="#" class="nav__name">Vamⵣ</a>
-            <span class="nav__profesion">Software Developer</span>
-          </div>
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="./icon_all.png" alt="NerdsDev Logo" class="logo-img" />
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <!-- Changed this from #footer to #contact so it goes to the contact section -->
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
-        <div style="font-size: fit;text-align: center;">
+    </header>
 
-          <input type="checkbox" checked id="darkmode-toggle" onclick="toggleMode()"/>
-		<label style="font-size: 1.5rem; " for="darkmode-toggle">
-			<svg version="1.1" class="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
-
-			<rect x="152.994" y="58.921" transform="matrix(0.3827 0.9239 -0.9239 0.3827 168.6176 -118.5145)" width="40.001" height="16"/>
-			<rect x="46.9" y="164.979" transform="matrix(0.9239 0.3827 -0.3827 0.9239 71.29 -12.4346)" width="40.001" height="16"/>
-			<rect x="46.947" y="315.048" transform="matrix(0.9239 -0.3827 0.3827 0.9239 -118.531 50.2116)" width="40.001" height="16"/>
-			
-				<rect x="164.966" y="409.112" transform="matrix(-0.9238 -0.3828 0.3828 -0.9238 168.4872 891.7491)" width="16" height="39.999"/>
-			
-				<rect x="303.031" y="421.036" transform="matrix(-0.3827 -0.9239 0.9239 -0.3827 50.2758 891.6655)" width="40.001" height="16"/>
-			
-				<rect x="409.088" y="315.018" transform="matrix(-0.9239 -0.3827 0.3827 -0.9239 701.898 785.6559)" width="40.001" height="16"/>
-			
-				<rect x="409.054" y="165.011" transform="matrix(-0.9239 0.3827 -0.3827 -0.9239 891.6585 168.6574)" width="40.001" height="16"/>
-			<rect x="315.001" y="46.895" transform="matrix(0.9238 0.3828 -0.3828 0.9238 50.212 -118.5529)" width="16" height="39.999"/>
-			<path d="M248,88c-88.224,0-160,71.776-160,160s71.776,160,160,160s160-71.776,160-160S336.224,88,248,88z M248,392
-				c-79.4,0-144-64.6-144-144s64.6-144,144-144s144,64.6,144,144S327.4,392,248,392z"/>
-			<rect x="240" width="16" height="72"/>
-			<rect x="62.097" y="90.096" transform="matrix(0.7071 0.7071 -0.7071 0.7071 98.0963 -40.6334)" width="71.999" height="16"/>
-			<rect y="240" width="72" height="16"/>
-			
-				<rect x="90.091" y="361.915" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 -113.9157 748.643)" width="16" height="71.999"/>
-			<rect x="240" y="424" width="16" height="72"/>
-			
-				<rect x="361.881" y="389.915" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 397.8562 960.6281)" width="71.999" height="16"/>
-			<rect x="424" y="240" width="72" height="16"/>
-			<rect x="389.911" y="62.091" transform="matrix(0.7071 0.7071 -0.7071 0.7071 185.9067 -252.6357)" width="16" height="71.999"/>
-</svg>
-     <svg version="1.1" class="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 49.739 49.739" style="enable-background:new 0 0 49.739 49.739;" xml:space="preserve">
-     <path d="M25.068,48.889c-9.173,0-18.017-5.06-22.396-13.804C-3.373,23.008,1.164,8.467,13.003,1.979l2.061-1.129l-0.615,2.268
-       c-1.479,5.459-0.899,11.25,1.633,16.306c2.75,5.493,7.476,9.587,13.305,11.526c5.831,1.939,12.065,1.492,17.559-1.258v0
-       c0.25-0.125,0.492-0.258,0.734-0.391l2.061-1.13l-0.585,2.252c-1.863,6.873-6.577,12.639-12.933,15.822
-       C32.639,48.039,28.825,48.888,25.068,48.889z M12.002,4.936c-9.413,6.428-12.756,18.837-7.54,29.253
-       c5.678,11.34,19.522,15.945,30.864,10.268c5.154-2.582,9.136-7.012,11.181-12.357c-5.632,2.427-11.882,2.702-17.752,0.748
-       c-6.337-2.108-11.473-6.557-14.463-12.528C11.899,15.541,11.11,10.16,12.002,4.936z"/></svg>
-		</label>
-
-    
-        </div> 
-        <div class="nav__menu">
-          <ul class="nav__list">
-            <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
-            <li class="nav__item"><a href="#About" class="nav__link">About</a></li>
-            <li class="nav__item"><a href="#Skills" class="nav__link">Skills</a></li>
-            <li><a href="#Contact" class="nav__link">Contact</a></li>
-          </ul>
-          
-        </div>
-       
-        <div class="nav__social">
-          <a href="https://www.instagram.com/dris.atk/" class="nav__social-icon">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-          <a href="https://www.github.com/Dris7" class="nav__social-icon">
-            <ion-icon name="logo-github"></ion-icon>
-          </a>
-          <a href="https://www.linkedin.com/in/drissatkou/" class="nav__social-icon">
-            <ion-icon name="logo-linkedin"></ion-icon>
-          </a>
-          <a href=" https://www.facebook.com/david.lamdon.1/" class="nav__social-icon">
-            <ion-icon name="logo-facebook"></ion-icon>
-          </a>
-          <a href="https://wa.me/212616824693?text=Hello,%20how%20are%20you%3F" class="nav__social-icon">
-            <ion-icon name="logo-whatsapp"></ion-icon>
-          </a>
-
-           
-        </div>
-        
-      </div>
-     
-    </nav>
-    
-  </header>
-
-  <div class="main" id="home">
-    <center>
-        <div class="homecontaint">
-            <h4>Hi, I am <span>Driss Atkou</span> 👋</h4>
-            <h1>Software Engineer</h1>
-            <p>DevOps-Cloud Engineer with a passion for solving complex problems.</p>
-            <img src="images/pro.png" style="border-radius: 50%; box-shadow: 0 0 10px #46D4D6;" alt="profile">
-        </div>
-
-        <div class="static">
-            <div class="row">
-                <div class="items">
-                    <img src="images/badge.png" alt="">
-                    <div>
-                        <h4>Bac+5</h4>
-                        <p>Years of Education</p>
-                    </div>
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Transform Your Ideas into Powerful Digital Solutions</h1>
+                <p class="hero-subtitle">
+                    We specialize in crafting exceptional Android &amp; Web applications that drive business growth and user engagement.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="cta-primary">Start Your Project</a>
+                    <a href="#services" class="cta-secondary">Explore Services</a>
                 </div>
-                <div class="items">
-                    <img src="images/badge(1).png" alt="">
-                    <div>
-                        <h4>20+</h4>
-                        <p>Completed Projects</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="section-container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <img  src="https://img.icons8.com/color/48/android-os.png" alt="Android Development" />
+                        </div>
+                        <h3>Android Development</h3>
+                        <p>
+                            Native Android applications built with the latest technologies and best practices, ensuring optimal performance and user experience.
+                        </p>
+                        <ul>
+                            <li>Native Android Apps</li>
+                            <li>Kotlin Development</li>
+                            <li>App Store Optimization</li>
+                            <li>Performance Optimization</li>
+                        </ul>
                     </div>
-                </div>
-                <div class="items">
-                    <img src="images/badge(2).png" alt="">
-                    <div>
-                        <h4>2+</h4>
-                        <p>Years of Experience</p>
+
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <img src="https://img.icons8.com/cute-clipart/64/web.png"alt="Web Development" />
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>
+                            Modern web applications that scale, featuring responsive design and cutting-edge technologies for optimal user engagement.
+                        </p>
+                        <ul>
+                            <li>Full-Stack Development</li>
+                            <li>Progressive Web Apps</li>
+                            <li>E-commerce Solutions</li>
+                            <li>Custom Web Applications</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <img src="https://img.icons8.com/office/40/design.png" alt="UI/UX Design" />
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>
+                            User-centered design approaches that create intuitive and engaging digital experiences.
+                        </p>
+                        <ul>
+                            <li>Interface Design</li>
+                            <li>User Experience Design</li>
+                            <li>Prototyping</li>
+                            <li>Design Systems</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </center>
-</div>
+        </section>
 
-<div class="aboutme" id="About">
-    <div class="row">
-        <div class="section s_image">
-            <img src="images/dev.png" alt="">
-        </div>
-        <div class="section">
-            <div class="who">Who I am</div>
-            <h1>About Me</h1>
-            <p>Hi! I’m <span>DRISS ⵣ</span>, a multi-talented software developer specialising in a wide range of technologies. My expertise includes mobile app development, machine learning and web application development.</p>
-
-            <p>In mobile app development, I have a strong background in both Android and iOS. I've developed native Android apps using Java and Kotlin, and iOS apps using Swift. My projects include a wide range of applications, some of which have been published on Google Play and the App Store.</p>
-
-            <p>My innovation extends to the cloud, where I've completed cloud certification with Azure (AZ-900). I've used Azure's range of services such as web applications, functions, VMs and networking to deliver scalable and robust solutions for customers. I'm also currently working towards the Azure Developer certification (AZ-204) to further enhance my cloud expertise.</p>
-
-            <p>In addition, my DevOps skills set me apart. I've implemented CI/CD pipelines using GitHub Actions across the majority of my projects, seamlessly automating testing and deployment. This ensures fast and reliable software delivery, which is critical in today's fast-paced development landscape.</p>
-
-            <p>My goal is to bring innovation and efficiency to every project I work on, making technology work for you.</p>
-
-            <div style="display: flex; gap: 5px;">
-              <a href="#" target="_blank">Resume-en</a>
-<!--               <a href="https://drive.google.com/file/d/1PDcviMYEtotYSlwrTH4G5PuLqh5qTpNb/view?usp=sharing" target="_blank">Resume-en</a>
- -->
-		    <!--                 <a href="https://drive.google.com/file/d/1UbACbgI57ChG0_jrijt54D53u75EHH53/view?usp=sharing" target="_blank">Resume-fr</a> -->
-                <a href="https://wa.me/212616824693?text=Hello,%20how%20are%20you%3F" target="_blank">Contact Me</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-  <div class="aboutme skills" id="Skills">
-    <div class="row">
-      <div class="section">
-        <div class="who">My Skills</div>
-        <h1>What My Programming Skills Included?</h1>
-        <p>My skill set encompasses a strong background in computer science,
-          mathematics, and physics, and proficiency in various programming languages.</p>
-        <a href="icons.html">Full Knowledge List</a>
-      </div>
-      <div class="section s_image">
-        <div class="row" id="iconContainer2">
-          
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="contain2 works">
-    <center>
-      <div class="contain2 testimoni" id="Testimonials">
-        <center>
-          <div class="who">My Work</div>
-          <h1>Github Projects</h1>
-          <div class="slider">
-            <div class="swiper mySwiper">
-              <div class="swiper-wrapper">
-                      
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-container">
+              <div class="who-we-are-header animate-on-scroll">
+                <h2 class="section-title">Who We Are</h2>
+                <p class="section-subtitle">
+                  We’re more than just developers – we’re <strong>problem solvers</strong>, <strong>innovators</strong>, and <strong>digital craftsmen</strong>.
+                </p>
               </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-        </center>
-      </div>
-    </center>
-  </div>
-  
-
-  <div class="footer" id="Footer">
-    <center>
-      <div class="order">
-        <h2>Start a project</h2>
-        <p>Interested in working together? We should queue up a chat. I’ll buy the coffee.</p>
-       <a href="https://wa.me/212616824693?text=Hello,%20how%20are%20you%3F" target="_blank">Hire Me</a>
-
-      </div>
-    </center>
-    <div class="foot">
-      <div class="row">
-        <div class="contant3">
-          <h4>Vamⵣ</h4>
-          <p>(This project is open source)</p>
-	  <p>contribute <a class="active" href="https://github.com/Dris7/Dris7.github.io"> 
-		   HERE!
-          </a></p>	
-          <a href="BRUH_YOU_CLICKED.html">
-            <p>Don't Click Here</p>
-          </a>
-        </div>
-        <div class="contant3">
-          <ul>
-            <li class="active">Social Media</li>
-            <li><a href="https://www.facebook.com/david.lamdon.1/">Facebook</a></li>
-            <li><a href="https://instagram.com/dris.atk">Instagram</a></li>
-            <li><a href="https://www.linkedin.com/in/drissatkou/">Linkedin</a></li>
-          </ul>
-        </div>
-        <div class="contant3" id="Footer">
-          <ul>
-            <li class="active">Contact</li>
-            <li>Contact Me Through the contact form! Click the button below.</li>
-            <li>
-              <div class="form">
-                <a id="link" target="_blank" href="mailto:drissatkou7@gmail.com">
-                  <ion-icon name="send"></ion-icon>
-                </a>
+          
+              <div class="about-grid">
+                <div class="about-content animate-on-scroll">
+                  <div class="mission-vision">
+                    <img
+                      class="about-icon"
+                      src="https://cdn-icons-png.flaticon.com/512/1182/1182718.png"
+                      alt="Vision Icon"
+                    />
+                    <h3>Our Mission</h3>
+                    <p>
+                      To empower businesses with cutting-edge digital solutions that
+                      drive growth, enhance user engagement, and create lasting
+                      value in every project we undertake.
+                    </p>
+                  </div>
+          
+                  <div class="mission-vision">
+                    <img
+                      class="about-icon"
+                      src="https://cdn-icons-png.flaticon.com/512/681/681494.png"
+                      alt="Innovation Icon"
+                    />
+                    <h3>Our Approach</h3>
+                    <p>
+                      Through continuous innovation, collaborative
+                      partnerships, and a commitment to excellence, we ensure our
+                      solutions stand out in the marketplace.
+                    </p>
+                  </div>
+          
+                  <div class="why-choose-us">
+                    <h3>Why Choose Us?</h3>
+                    <ul>
+                      <li><strong>Expert Team</strong> with a proven track record</li>
+                      <li><strong>Quality & Innovation</strong> in every line of code</li>
+                      <li><strong>Transparent Process</strong> from start to finish</li>
+                      <li><strong>Long-Term Partnerships</strong> that drive success</li>
+                    </ul>
+                  </div>
+                </div>
+          
+                <div class="about-image animate-on-scroll">
+                  <img src="./pic.jpeg" alt="NerdsDev Team" />
+                </div>
               </div>
-            </li>
-          </ul>
+          
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-number">15+</div>
+                  <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">98%</div>
+                  <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">5+</div>
+                  <div class="stat-label">Years of Experience</div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+
+        <!-- Projects Section -->
+        <section id="projects" class="featured-projects">
+            <div class="section-container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-showcase">
+                    <!-- Example Project Card -->
+                    <div class="project-card animate-on-scroll">
+                        <img
+                          src="./m.png"
+                          alt="MerlMovie App"
+                          class="project-image"
+                        />
+                        <div class="project-content">
+                            <h3>MerlMovie</h3>
+                            <p>
+                                A sophisticated movie discovery platform with real-time updates and personalized recommendations.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Kotlin</span>
+                                <span class="tech-tag">Android SDK</span>
+                                <span class="tech-tag">Firebase</span>
+                            </div>
+                            <a href="./moflex.html" class="btn">View Case Study →</a>
+                        </div>
+                    </div>
+                    <!-- Add more project cards as needed -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="contact-container animate-on-scroll">
+              <h2 class="section-title">Start Your Project</h2>
+              <p class="contact-subtitle">
+                Ready to turn your vision into a thriving digital reality? Fill out the
+                form below or email us at
+                <strong><a href="mailto:hello@nerdsdev.pro">hello@nerdsdev.pro</a></strong> and
+                we’ll get back to you shortly.
+              </p>
+          
+              <form id="contactForm" class="contact-form">
+                <div class="form-grid">
+                  <!-- Name -->
+                  <div class="form-group">
+                    <label for="name">Name <span class="required">*</span></label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your Full Name"
+                      required
+                    />
+                  </div>
+                  <!-- Email -->
+                  <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                  </div>
+                  <!-- Phone -->
+                  <div class="form-group">
+                    <label for="phone">Phone (Optional)</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="(e.g. +1 234 567 8901)"
+                    />
+                  </div>
+                  <!-- Company -->
+                  <div class="form-group">
+                    <label for="company">Company (Optional)</label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      placeholder="Company Name"
+                    />
+                  </div>
+                  <!-- Project Type -->
+                  <div class="form-group full-width">
+                    <label for="projectType"
+                      >Project Type <span class="required">*</span></label
+                    >
+                    <select id="projectType" name="projectType" required>
+                      <option value="">Select a project type</option>
+                      <option value="android">Android Development</option>
+                      <option value="web">Web Development</option>
+                      <option value="both">Android & Web Development</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <!-- Project Details -->
+                  <div class="form-group full-width">
+                    <label for="message"
+                      >Project Details <span class="required">*</span></label
+                    >
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      placeholder="Describe your project..."
+                      required
+                    ></textarea>
+                  </div>
+                  <!-- Budget -->
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+              </form>
+            </div>
+          </section>
+          
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>NerdsDev</h3>
+                <p>
+                    Transforming ideas into exceptional digital experiences through innovative software development.
+                </p>
+                <div class="social-links">
+                    <!-- Replace with actual links if available -->
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                  </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li>Email: support@nerdsdev.pro</li>
+                    <li>Business Inquiries: hello@nerdsdev.pro</li>
+                    <li>Support: support@nerdsdev.pro</li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </div>
+        <div class="copyright">
+            <p>
+                © <span id="current-year"></span> NerdsDev. All rights reserved.
+            </p>
+        </div>
+    </footer>
 
-  </div>
+    <!-- SCRIPTS -->
+    <script>
+        // IntersectionObserver for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-  <!-- ===== IONICONS ===== -->
-  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-  <script src="js/nav.js"></script>
-  <script src="js/slider.js"></script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
+        document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+            observer.observe(element);
+        });
 
-  <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetID = this.getAttribute('href');
+                document.querySelector(targetID).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav ul');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        }
+
+        // Update copyright year
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
 </body>
-
 </html>
+ 

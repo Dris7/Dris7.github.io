@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>MoFlex</title>
+  <meta name="description" content="A movie guide app for you!" />
+  <meta property="og:title" content="MoFlex" />
+  <meta property="og:description" content="A movie guide app for you!" />
+  <meta property="og:site_name" content="MoFlex" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="MoFlex" />
+  <meta name="twitter:description" content="A movie guide app for you!" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="64x64" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- STYLES (copied from index.html for consistent design) -->
+  <style>
+    :root {
+      --primary: #11567E;
+      --primary-light: #1a6fa3;
+      --primary-dark: #0a3c59;
+      --primary-gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      --secondary: #2a9fd6;
+      --accent: #FFD700;
+      --background: #f8fafc;
+      --text: #334155;
+      --text-light: #64748b;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--background);
+      scroll-behavior: smooth;
+    }
+
+    /* Enhanced Header (fixed, transparent background, etc.) */
+    header {
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(17, 86, 126, 0.1);
+    }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-container img {
+            height: 45px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover img {
+            transform: scale(1.05);
+        }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Mobile Menu (hamburger) */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .bar {
+      width: 25px;
+      height: 3px;
+      background: var(--primary);
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        padding: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      nav ul.active {
+        display: flex;
+        flex-direction: column;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Hero-like Red Banner (replacing the red background) */
+    .hero-red {
+      min-height: 50vh;
+      background: #ff0000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      color: #fff;
+    }
+    .hero-red h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-red p {
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Wrapper around main content */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 2rem; /* top padding to accommodate fixed header */
+    }
+
+    /* Features Section */
+    #features {
+      background: #ffffff;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    #features .features-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    #features h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    #features h1 {
+      font-size: 2.5rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      padding: 2rem;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .feature-card h2 {
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* Big Info Box */
+    .info-box {
+      background: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      text-align: center;
+    }
+
+    /* FAQ Section */
+    #faq {
+      background: #f3f3f3;
+      padding: 4rem 2rem;
+    }
+    #faq h1 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+    .faqs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .faq-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .faq-item p {
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+
+    footer {
+            background: var(--primary-dark);
+            color:  #B0C4DE;
+            padding: 6rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h3 {
+            color: #B0C4DE;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        .footer h4 {
+        color: #B0C4DE; /* Matching color for headings */
+    }
+
+        .footer-col p {
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-links li a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 4rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+    /* Responsive for FAQ, etc. */
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  .footer-links a {
+        color: #B0C4DE; /* Consistent color for links */
+    }
+    .social-link {
+        color: #B0C4DE;
+        /* ...existing code... */
+    }
+    .copyright {
+        color: #A9A9A9; /* Slightly darker for copyright text */
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+   
+    <div class="header-content">
+        <div class="logo-container">
+            <img src="./icon_all.png" alt="NerdsDev Logo" class="logo-img" />
+        </div>
+      <nav>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="./index.html#contact">Contact</a></li>
+          <li><a href="./index.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- RED HERO BANNER -->
+  <section class="hero-red">
+    <div>
+      <h1>MoFlex</h1>
+      <p>A movie guide app for you. Discover new releases, watch trailers, and keep track of your next favorite film!</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT WRAPPER -->
+  <div class="main-content">
+
+    <!-- LANDING PREVIEW + TEXT -->
+    <section id="landing">
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+        <div style="flex: 1;">
+          <h2 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--text);">
+            A movie guide app for you.
+          </h2>
+          <p style="margin-bottom: 1.5rem; color: var(--text-light); line-height:1.6;">
+            MoFlex, your dedicated movie guide, is here to elevate your cinematic experience.  
+            Uncover the latest and upcoming releases with a user-friendly interface, all powered by the reliable 
+            <a href="https://themoviedb.org" target="_blank" style="color: var(--primary); text-decoration: underline;">themoviedb.org</a> database.
+          </p>
+
+          <div>
+            <!-- Button-like links -->
+            <a href="https://play.google.com/store/apps/details?id=com.movies.moflex" 
+               style="
+                 display: inline-block;
+                 background: #fff;
+                 color: var(--primary-dark);
+                 padding: 0.75rem 1.5rem;
+                 border-radius: 25px;
+                 margin-right: 1rem;
+                 margin-bottom: 1rem;
+                 text-decoration: none;
+                 font-weight: 600;
+                 border: 2px solid var(--border);
+                 transition: background 0.3s;
+               "
+               onmouseover="this.style.background='#f0f4f8'"
+               onmouseout="this.style.background='#fff'">
+              <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;"
+                   xmlns="http://www.w3.org/2000/svg" viewBox="-145 129 220 256">
+                <!-- Apple icon path -->
+                <path fill="currentColor"
+                  d="M75,316.8c-6,13.3-8.9,19.3-16.6,31c-10.8,16.4-26,36.9-44.9,37.1
+                  c-16.8,0.2-21.1-10.9-43.8-10.8c-22.7,0.1-27.5,11-44.3,10.8c-18.9-0.2-33.3-18.7-44.1-35.1
+                  c-30.2-46-33.4-99.9-14.7-128.6c13.2-20.4,34.1-32.3,53.8-32.3
+                  c20,0,32.5,11,49.1,11c16,0,25.8-11,48.9-11c17.5,0,36,9.5,49.2,26
+                  C24.3,238.6,31.3,300.3,75,316.8L75,316.8z M0.8,170.6
+                  c8.4-10.8,14.8-26,12.5-41.6c-13.7,0.9-29.8,9.7-39.1,21.1c-8.5,10.3-15.5,25.6-12.8,40.5C-23.7,191.1-8.2,182.1,0.8,170.6
+                  L0.8,170.6z"
+                ></path>
+              </svg>
+              App Store
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.movies.moflex"
+               style="
+                 display: inline-block;
+                 background: #fff;
+                 color: var(--primary-dark);
+                 padding: 0.75rem 1.5rem;
+                 border-radius: 25px;
+                 margin-bottom: 1rem;
+                 text-decoration: none;
+                 font-weight: 600;
+                 border: 2px solid var(--border);
+                 transition: background 0.3s;
+               "
+               onmouseover="this.style.background='#f0f4f8'"
+               onmouseout="this.style.background='#fff'">
+              <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;"
+                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+                <!-- Google Play icon -->
+                <path fill="currentColor"
+                  d="M1.25097 0.0664289C1.40622 -0.0227402 1.59729 -0.0220988 1.75194 0.0681106L9.59402 4.64266L7.16668 6.82726L1 1.27725V0.5C1 0.320967 1.09572 0.155598 1.25097 0.0664289Z">
+                </path>
+                <path fill="currentColor"
+                  d="M1 2.62262V12.3773L6.41925 7.49994L1 2.62262Z">
+                </path>
+                <path fill="currentColor"
+                  d="M1 13.7226V14.5C1 14.679 1.09572 14.8444 1.25097 14.9336C1.40622 15.0227 1.59729 15.0221 1.75194 14.9319L9.59409 10.3573L7.16668 8.17262L1 13.7226Z">
+                </path>
+                <path fill="currentColor"
+                  d="M10.5011 9.82822L13.7519 7.93189C13.9055 7.84228 14 7.67783 14 7.5C14 7.32217 13.9055 7.15772 13.7519 7.06811L10.501 5.17173L7.9141 7.49994L10.5011 9.82822Z">
+                </path>
+              </svg>
+              Play Store
+            </a>
+          </div>
+        </div>
+
+        <div style="flex: 1; text-align: center;">
+          <img
+            src="./moflix_logo.png"
+            alt="MoFlex Preview"
+            style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+<!-- FEATURES SECTION (Clean, Minimal, Modern) -->
+<section id="features" style="padding: 4rem 2rem; background: #fff;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <!-- SECTION HEADING -->
+      <h2
+        style="
+          color: var(--primary);
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        "
+      >
+        FEATURES
+      </h2>
+      <p
+        style="
+          max-width: 650px;
+          margin: 0 auto 2rem;
+          color: var(--text-light);
+          line-height: 1.6;
+        "
+      >
+        Your Experience Gets Better &amp; Better Over Time
+      </p>
+  
+      <!-- FEATURES GRID -->
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 2rem;
+        "
+      >
+        <!-- Feature Card 1 -->
+        <div
+          style="
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+          "
+          onmouseover="this.style.transform='translateY(-4px)'"
+          onmouseout="this.style.transform='translateY(0)'"
+        >
+          <!-- Replace icon source if desired -->
+          <img
+            src="https://img.icons8.com/color/48/clapperboard.png"
+            alt="Upcoming Releases Icon"
+            style="width: 48px; height: auto; margin-bottom: 1rem;"
+          />
+          <h3
+            style="
+              color: var(--text);
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Stay Ahead with Upcoming Releases
+          </h3>
+          <p style="color: var(--text-light); line-height: 1.6;">
+            Be in the know about the hottest movies set to hit theaters.
+          </p>
+        </div>
+  
+        <!-- Feature Card 2 -->
+        <div
+          style="
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+          "
+          onmouseover="this.style.transform='translateY(-4px)'"
+          onmouseout="this.style.transform='translateY(0)'"
+        >
+          <img
+            src="https://img.icons8.com/color/48/search-property.png"
+            alt="Discover Icon"
+            style="width: 48px; height: auto; margin-bottom: 1rem;"
+          />
+          <h3
+            style="
+              color: var(--text);
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Explore and Discover
+          </h3>
+          <p style="color: var(--text-light); line-height: 1.6;">
+            Delve into a diverse film library—actors, directors, genres, and more.
+          </p>
+        </div>
+  
+        <!-- Feature Card 3 -->
+        <div
+          style="
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+          "
+          onmouseover="this.style.transform='translateY(-4px)'"
+          onmouseout="this.style.transform='translateY(0)'"
+        >
+          <img
+            src="https://img.icons8.com/color/48/database.png"
+            alt="Powered by TMDB Icon"
+            style="width: 48px; height: auto; margin-bottom: 1rem;"
+          />
+          <h3
+            style="
+              color: var(--text);
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Powered by TheMovieDb.org
+          </h3>
+          <p style="color: var(--text-light); line-height: 1.6;">
+            Enjoy accurate, up-to-date info via the extensive TMDB database.
+          </p>
+        </div>
+  
+        <!-- Feature Card 4 -->
+        <div
+          style="
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+          "
+          onmouseover="this.style.transform='translateY(-4px)'"
+          onmouseout="this.style.transform='translateY(0)'"
+        >
+          <img
+            src="https://img.icons8.com/color/48/calendar.png"
+            alt="Release Dates Icon"
+            style="width: 48px; height: auto; margin-bottom: 1rem;"
+          />
+          <h3
+            style="
+              color: var(--text);
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Release Dates &amp; Trailers
+          </h3>
+          <p style="color: var(--text-light); line-height: 1.6;">
+            Plan movie nights easily by checking release dates and trailers.
+          </p>
+        </div>
+  
+        <!-- Feature Card 5 -->
+        <div
+          style="
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+          "
+          onmouseover="this.style.transform='translateY(-4px)'"
+          onmouseout="this.style.transform='translateY(0)'"
+        >
+          <img
+            src="https://img.icons8.com/color/48/checklist.png"
+            alt="Watchlist Icon"
+            style="width: 48px; height: auto; margin-bottom: 1rem;"
+          />
+          <h3
+            style="
+              color: var(--text);
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Personalized Watchlist
+          </h3>
+          <p style="color: var(--text-light); line-height: 1.6;">
+            Keep track of every film you’re eager to see—all in one place.
+          </p>
+        </div>
+  
+        <!-- Feature Card 6 -->
+        <div
+          style="
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+          "
+          onmouseover="this.style.transform='translateY(-4px)'"
+          onmouseout="this.style.transform='translateY(0)'"
+        >
+          <img
+            src="https://img.icons8.com/color/48/design.png"
+            alt="Intuitive Design Icon"
+            style="width: 48px; height: auto; margin-bottom: 1rem;"
+          />
+          <h3
+            style="
+              color: var(--text);
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Intuitive Design
+          </h3>
+          <p style="color: var(--text-light); line-height: 1.6;">
+            Enjoy a clean, user-friendly interface for hassle-free browsing.
+          </p>
+        </div>
+  
+        <!-- Feature Card 7 -->
+        <div
+          style="
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+          "
+          onmouseover="this.style.transform='translateY(-4px)'"
+          onmouseout="this.style.transform='translateY(0)'"
+        >
+          <img
+          src="https://img.icons8.com/fluency/50/chatbot.png"
+            alt="AI Chatbot Icon"
+            style="width: 48px; height: auto; margin-bottom: 1rem;"
+          />
+          <h3
+            style="
+              color: var(--text);
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            "
+          >
+            AI Chatbot Recommendations
+          </h3>
+          <p style="color: var(--text-light); line-height: 1.6;">
+            Get personalized movie &amp; series tips instantly from our built-in chatbot.
+          </p>
+        </div>
+  
+        <!-- Feature Card 8 -->
+        <div
+          style="
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+          "
+          onmouseover="this.style.transform='translateY(-4px)'"
+          onmouseout="this.style.transform='translateY(0)'"
+        >
+          <img
+            src="https://img.icons8.com/color/48/filter.png"
+            alt="Advanced Filtering Icon"
+            style="width: 48px; height: auto; margin-bottom: 1rem;"
+          />
+          <h3
+            style="
+              color: var(--text);
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Advanced Filtering
+          </h3>
+          <p style="color: var(--text-light); line-height: 1.6;">
+            Narrow your search by genre, rating, year, and more—finding perfect picks faster.
+          </p>
+        </div>
+      </div> <!-- end grid -->
+    </div>
+  </section>
+  
+
+
+    <!-- FAQ SECTION -->
+    <section id="faq">
+      <h1>Frequently Asked Questions</h1>
+      <div class="faqs">
+        <div class="faq-item">
+          <h3>What is MoFlex?</h3>
+          <p>
+            MoFlex is your dedicated movie guide. It allows you to access the latest and upcoming releases with a user-friendly interface on your mobile—completely free, no sign-up required!
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Is MoFlex safe?</h3>
+          <p>
+            Yes, MoFlex is safe to use. The plugin feature can be created by you or third-party developers. Because the plugin doesn’t run executable code on your device, there’s minimal risk.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>How does the plugin feature work?</h3>
+          <p>
+            MoFlex operates as a search engine for plugins. Once installed, a plugin can let you stream content within the app—giving you access to a variety of video sources.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>What can I watch here?</h3>
+          <p>
+            You can watch Movies, TV shows, Anime, and more via plugins. The possibilities are endless.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I cast to my TV?</h3>
+          <p>
+            Yes, you can cast video to any TV that supports Chromecast (if the plugin supports our internal player API).
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I download a video and watch offline?</h3>
+          <p>
+            Yes, if a plugin’s source supports it. MoFlex’s internal player API can handle downloads for offline viewing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- END .main-content -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h3>NerdsDev</h3>
+            <p>
+                Transforming ideas into exceptional digital experiences through innovative software development.
+            </p>
+            <div class="social-links">
+                <!-- Replace with actual links if available -->
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+              </div>
+        </div>
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#about">About Us</a></li>
+                <li><a href="/#projects">Other Projects</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <ul class="footer-links">
+                <li>Email: support@nerdsdev.pro</li>
+                <li>Business Inquiries: hello@nerdsdev.pro</li>
+                <li>Support: support@nerdsdev.pro</li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>
+            © <span id="current-year"></span> NerdsDev. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Mobile menu toggler
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav ul');
+
+    if(hamburger && nav){
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>
