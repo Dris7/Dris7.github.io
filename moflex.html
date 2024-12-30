@@ -11,7 +11,14 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="MoFlex" />
   <meta name="twitter:description" content="A movie guide app for you!" />
-  <link rel="icon" href="./favicon.ico" type="image/x-icon" sizes="64x64" />
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+      <!-- Animate.css -->
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- STYLES (copied from index.html for consistent design) -->
@@ -349,6 +356,296 @@
     .copyright {
         color: #A9A9A9; /* Slightly darker for copyright text */
     }
+    .hero-red {
+    min-height: 80vh;
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+    color: #fff;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #fff;
+    color: #ff0000;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.hero-images {
+    flex: 2; 
+    min-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.phone-mockup {
+    max-width: 85%; 
+    min-height: 480px; 
+    object-fit: contain; 
+    transform: perspective(1000px) rotateY(-15deg);
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+}
+
+.phone-mockup:hover {
+    transform: perspective(1000px) rotateY(-5deg) translateY(-10px);
+}
+
+/* Add some decorative elements */
+.hero-red::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(-45deg);
+    z-index: 1;
+}
+
+/* Responsive design */
+@media (max-width: 968px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .phone-mockup {
+        max-width: 90%; 
+        min-height: 400px; 
+    }
+
+    .phone-mockup:hover {
+        transform: translateY(-10px);
+    }
+}
+
+.store-button {
+        transition: all 0.3s ease;
+        opacity: 0.9;
+    }
+
+    .store-button:hover {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+
+    /* Hero section improvements */
+    .hero-red {
+        padding: 4rem 2rem;
+        background: var(--primary);
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .hero-red {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .hero-red h2 {
+            font-size: 1.5rem;
+        }
+
+        .hero-red p {
+            font-size: 1rem;
+        }
+
+        .store-buttons {
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .store-button img {
+            max-width: 140px;
+        }
+    }
+    .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff; /* Changed from var(--accent) to white */
+            font-weight: 600;
+        }
+
+        .footer-col p {
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links li a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links li a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 4rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links a {
+    color: #f0f0f0; /* Light gray color to match a dark footer */
+    text-decoration: none; /* Remove underline */
+  }
+  @media (max-width: 768px) {
+            .hero-red > div {
+                flex-direction: column-reverse !important;
+                text-align: center !important; /* Optional: Center-align text on mobile */
+            }
+
+            .hero-red > div > div:first-child {
+                /* Ensure the text container takes full width on mobile */
+                flex: 1 1 100% !important;
+            }
+
+            .hero-red > div > div:last-child {
+                /* Ensure the image container takes full width on mobile */
+                flex: 1 1 100% !important;
+            }
+
+            .hero-red img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            /* Optional: Adjust button sizes for better mobile usability */
+            .hero-red a {
+                padding: 0.75rem 1rem !important;
+                font-size: 1rem !important;
+            }
+        }
   </style>
 </head>
 <body>
@@ -375,80 +672,36 @@
     </div>
   </header>
 
-  <!-- RED HERO BANNER -->
   <section class="hero-red">
-    <div>
-      <h1>MoFlex</h1>
-      <p>A movie guide app for you. Discover new releases, watch trailers, and keep track of your next favorite film!</p>
-    </div>
-  </section>
-
-  <!-- MAIN CONTENT WRAPPER -->
-  <div class="main-content">
-
-    <!-- LANDING PREVIEW + TEXT -->
-    <section id="landing">
-      <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
         <div style="flex: 1;">
-          <h2 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--text);">
+          <h2 style="font-size: 1.75rem; margin-bottom: 1rem; color: white;">
             A movie guide app for you.
           </h2>
-          <p style="margin-bottom: 1.5rem; color: var(--text-light); line-height:1.6;">
+          <p style="margin-bottom: 1.5rem; color: white; line-height:1.6;">
             MoFlex, your dedicated movie guide, is here to elevate your cinematic experience.  
             Uncover the latest and upcoming releases with a user-friendly interface, all powered by the reliable 
-            <a href="https://themoviedb.org" target="_blank" style="color: var(--primary); text-decoration: underline;">themoviedb.org</a> database.
+            <a href="https://themoviedb.org" target="_blank" style="color: lightgrey; text-decoration: underline;">themoviedb.org</a> database.
           </p>
 
           <div>
             <!-- Button-like links -->
-            <a href="https://play.google.com/store/apps/details?id=com.movies.moflex" 
-               style="
-                 display: inline-block;
-                 background: #fff;
-                 color: var(--primary-dark);
-                 padding: 0.75rem 1.5rem;
-                 border-radius: 25px;
-                 margin-right: 1rem;
-                 margin-bottom: 1rem;
-                 text-decoration: none;
-                 font-weight: 600;
-                 border: 2px solid var(--border);
-                 transition: background 0.3s;
-               "
-               onmouseover="this.style.background='#f0f4f8'"
-               onmouseout="this.style.background='#fff'">
-              <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;"
-                   xmlns="http://www.w3.org/2000/svg" viewBox="-145 129 220 256">
-                <!-- Apple icon path -->
-                <path fill="currentColor"
-                  d="M75,316.8c-6,13.3-8.9,19.3-16.6,31c-10.8,16.4-26,36.9-44.9,37.1
-                  c-16.8,0.2-21.1-10.9-43.8-10.8c-22.7,0.1-27.5,11-44.3,10.8c-18.9-0.2-33.3-18.7-44.1-35.1
-                  c-30.2-46-33.4-99.9-14.7-128.6c13.2-20.4,34.1-32.3,53.8-32.3
-                  c20,0,32.5,11,49.1,11c16,0,25.8-11,48.9-11c17.5,0,36,9.5,49.2,26
-                  C24.3,238.6,31.3,300.3,75,316.8L75,316.8z M0.8,170.6
-                  c8.4-10.8,14.8-26,12.5-41.6c-13.7,0.9-29.8,9.7-39.1,21.1c-8.5,10.3-15.5,25.6-12.8,40.5C-23.7,191.1-8.2,182.1,0.8,170.6
-                  L0.8,170.6z"
-                ></path>
-              </svg>
-              App Store
-            </a>
-
-            <a href="https://play.google.com/store/apps/details?id=com.movies.moflex"
-               style="
-                 display: inline-block;
-                 background: #fff;
-                 color: var(--primary-dark);
-                 padding: 0.75rem 1.5rem;
-                 border-radius: 25px;
-                 margin-bottom: 1rem;
-                 text-decoration: none;
-                 font-weight: 600;
-                 border: 2px solid var(--border);
-                 transition: background 0.3s;
-               "
-               onmouseover="this.style.background='#f0f4f8'"
-               onmouseout="this.style.background='#fff'">
-              <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;"
+            <a  href="https://play.google.com/store/apps/details?id=com.movies.moflex" 
+            style="
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--border);
+            transition: all 0.3s;"
+          onmouseover="this.style.background='#f0f4f8'; this.style.color='#0a3c59';"
+          onmouseout="this.style.background='var(--primary)'; this.style.color='white';">
+          <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;"
                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
                 <!-- Google Play icon -->
                 <path fill="currentColor"
@@ -464,20 +717,56 @@
                   d="M10.5011 9.82822L13.7519 7.93189C13.9055 7.84228 14 7.67783 14 7.5C14 7.32217 13.9055 7.15772 13.7519 7.06811L10.501 5.17173L7.9141 7.49994L10.5011 9.82822Z">
                 </path>
               </svg>
+             
               Play Store
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.movies.moflex"
+            style="
+            display: inline-block;
+            background: #808080;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--border);
+            opacity: 0.6;
+            cursor: not-allowed;
+            pointer-events: none;"
+            onclick="return false;">
+          <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;"
+          xmlns="http://www.w3.org/2000/svg" viewBox="-145 129 220 256">
+       <!-- Apple icon path -->
+       <path fill="currentColor"
+         d="M75,316.8c-6,13.3-8.9,19.3-16.6,31c-10.8,16.4-26,36.9-44.9,37.1
+         c-16.8,0.2-21.1-10.9-43.8-10.8c-22.7,0.1-27.5,11-44.3,10.8c-18.9-0.2-33.3-18.7-44.1-35.1
+         c-30.2-46-33.4-99.9-14.7-128.6c13.2-20.4,34.1-32.3,53.8-32.3
+         c20,0,32.5,11,49.1,11c16,0,25.8-11,48.9-11c17.5,0,36,9.5,49.2,26
+         C24.3,238.6,31.3,300.3,75,316.8L75,316.8z M0.8,170.6
+         c8.4-10.8,14.8-26,12.5-41.6c-13.7,0.9-29.8,9.7-39.1,21.1c-8.5,10.3-15.5,25.6-12.8,40.5C-23.7,191.1-8.2,182.1,0.8,170.6
+         L0.8,170.6z"
+       ></path>
+     </svg>
+          App Store (Coming Soon)
             </a>
           </div>
         </div>
 
         <div style="flex: 1; text-align: center;">
           <img
-            src="./moflix_logo.png"
+            src="./portrait.png"
             alt="MoFlex Preview"
-            style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"
+            style="max-width: 120%; height: auto; border-radius: 8px;"
           />
         </div>
       </div>
-    </section>
+</section>
+
+  <!-- MAIN CONTENT WRAPPER -->
+  <div class="main-content">
 
     <!-- FEATURES SECTION -->
 <!-- FEATURES SECTION (Clean, Minimal, Modern) -->
@@ -837,6 +1126,7 @@
   </div> <!-- END .main-content -->
 
   <!-- FOOTER -->
+
   <footer>
     <div class="footer-grid">
         <div class="footer-col">
@@ -875,9 +1165,10 @@
         </p>
     </div>
 </footer>
-
   <!-- SCRIPTS -->
   <script>
+
+
     // Mobile menu toggler
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav ul');
