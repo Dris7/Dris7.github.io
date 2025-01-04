@@ -14,20 +14,11 @@
         firebase.initializeApp(firebaseConfig);
 
         if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-            // Try App Link first (https)
-            window.location.replace('https://nerdsdev.pro/signup.html?' + encodeURIComponent(window.location.href));
-            
-            // Fallback to Deep Link after a short delay if App Link fails
-            setTimeout(function() {
-                window.location.replace('moflexapp://signup?' + encodeURIComponent(window.location.href));
-            }, 1000);
+            // Simple redirect to your app
+            window.location.replace('moflexapp://signup?' + window.location.href);
         }
     </script>
-    
-    <!-- Optional: Add a message for users -->
-    <div>
-        <h2>Redirecting to app...</h2>
-        <p>If you're not automatically redirected, please open the app manually.</p>
-    </div>
+    <h2>Opening app...</h2>
+    <p>If the app doesn't open automatically, please open it manually.</p>
 </body>
 </html>
