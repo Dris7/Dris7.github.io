@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moflex Plugin Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+    <style>
+        :root {
+            --primary-color: rgb(17, 86, 126);
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+            --code-bg: #1e293b;
+            --warning-bg: #fff7ed;
+            --warning-border: #ea580c;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .disclaimer {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        code {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            display: block;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .note {
+            background: #e0f2fe;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .field-description {
+            margin-left: 1rem;
+            border-left: 2px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #f1f5f9;
+            text-align: left;
+        }
+
+        .quick-nav {
+            top: 20px;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .quick-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .quick-nav li {
+            margin: 0.5rem 0;
+        }
+
+        .quick-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .quick-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .example-block {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        .implementation-notes {
+            background: #f0f9ff;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        :root {
+            --primary-color: rgb(17, 86, 126);
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+            --code-bg: #1e293b;
+            --warning-bg: #fff7ed;
+            --warning-border: #ea580c;
+            --nav-hover-bg: #e0f2fe;
+        }
+
+        /* Previous styles remain... */
+
+        /* Updated Quick Navigation styles */
+        .quick-nav {
+            top: 20px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .quick-nav h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .quick-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .quick-nav li {
+            margin: 0;
+        }
+
+        .quick-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            background: #f8fafc;
+            display: block;
+            transition: all 0.2s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quick-nav a:hover {
+            background: var(--nav-hover-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Moflex Plugin Documentation</h1>
+            <p>Version 1.0.0 | Last Updated: January 2025</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="disclaimer">
+            <h3>⚠️ Disclaimer</h3>
+            <p>This documentation is intended for developers integrating with the Moflex platform. The implementation of plugins should comply with all applicable laws and regulations regarding content distribution and streaming services. Moflex does not host or provide any media content directly.</p>
+        </div>
+
+        <div class="content-section quick-nav">
+            <h2>Quick Navigation</h2>
+            <ul>
+                <li><a href="#overview">📋 Overview</a></li>
+                <li><a href="#getting-started">🚀 Getting Started</a></li>
+                <li><a href="#metadata">📝 Metadata</a></li>
+                <li><a href="#integration">🔄 Integration</a></li>
+                <li><a href="#api-reference">📚 API Reference</a></li>
+                <li><a href="#best-practices">✨ Best Practices</a></li>
+            </ul>
+        </div>
+
+        <div id="overview" class="content-section">
+            <h2>Overview</h2>
+            <p>The Moflex Plugin System enables seamless integration of various streaming sources into the Moflex platform. This documentation provides comprehensive guidance on creating and implementing plugins that enhance the streaming experience while maintaining compatibility with the core platform.</p>
+            
+            <div class="implementation-notes">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Standardized metadata structure for consistent integration</li>
+                    <li>Flexible stream type support (API or WebView)</li>
+                    <li>Built-in support for multiple quality options</li>
+                    <li>Subtitle integration capabilities</li>
+                    <li>Responsive video player integration</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="getting-started" class="content-section">
+            <h2>Getting Started</h2>
+            <p>Before implementing a plugin, ensure you have:</p>
+            <ul>
+                <li>A valid streaming source with stable API endpoints</li>
+                <li>Capability to serve JSON responses in the required format</li>
+                <li>Understanding of the metadata structure and requirements</li>
+            </ul>
+        </div>
+
+        <div id="metadata" class="content-section">
+            <h2>Metadata Structure</h2>
+            <p>The plugin metadata defines how your streaming source integrates with Moflex. Here's a complete example:</p>
+            <pre><code class="language-json">{
+  "name": "ExamplePlugin",
+  "embed_url": "https://example.com/embed/{t}/{i}",
+  "tv_embed_url": "https://example.com/embed/{t}/{i}/{s}/{e}",
+  "stream_type": "api",
+}</code></pre>
+
+            <div class="field-description">
+                <h3>Detailed Field Reference</h3>
+                <table>
+                    <tr>
+                        <th>Field</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>Yes</td>
+                        <td>Unique identifier for your plugin</td>
+                    </tr>
+                    <tr>
+                        <td>embed_url</td>
+                        <td>Yes</td>
+                        <td>Template URL for movie content</td>
+                    </tr>
+                    <tr>
+                        <td>tv_embed_url</td>
+                        <td>Yes</td>
+                        <td>Template URL for TV show content</td>
+                    </tr>
+                    <tr>
+                        <td>stream_type</td>
+                        <td>Yes</td>
+                        <td>Either "api" or "webview"</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="api-reference" class="content-section">
+            <h2>API Response Structure</h2>
+            <p>When using stream_type: "api", your endpoint must return this JSON structure:</p>
+            <pre><code class="language-json">{
+  "qualities": [
+    {
+      "name": "1080p",
+      "link": "https://example.com/beautiful.mp4",
+      "bitrate": "5000k",
+      "resolution": "1920x1080"
+    },
+    {
+      "name": "Auto",
+      "link": "https://example.com/master.m3u8",
+      "type": "hls"
+    }
+  ],
+  "subtitles": [
+    {
+      "name": "English",
+      "link": "https://example.com/en.vtt",
+      "language": "en",
+      "type": "vtt"
+    },
+    {
+      "name": "Spanish",
+      "link": "https://example.com/es.srt",
+      "language": "es",
+      "type": "srt"
+    }
+  ],
+  "metadata": {
+    "title": "Example Movie",
+    "duration": 7200,
+    "thumbnail": "https://example.com/thumb.jpg"
+  }
+}</code></pre>
+        </div>
+
+        <div id="best-practices" class="content-section">
+            <h2>Best Practices</h2>
+            <div class="implementation-notes">
+                <h3>Recommended Implementation</h3>
+                <ul>
+                    <li>Always implement error handling in your API responses</li>
+                    <li>Use HTTPS for all URLs</li>
+                    <li>Implement proper CORS headers</li>
+                    <li>Cache responses when possible</li>
+                    <li>Provide fallback quality options</li>
+                </ul>
+            </div>
+
+            <div class="example-block">
+                <h3>Error Response Example</h3>
+                <pre><code class="language-json">{
+  "error": true,
+  "code": "CONTENT_UNAVAILABLE",
+  "message": "The requested content is not available",
+  "status": 404
+}</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-json.min.js"></script>
+</body>
+</html>
