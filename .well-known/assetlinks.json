@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.movies.moflex",
+      "sha256_cert_fingerprints": [
+        "15:5E:11:E9:F7:A4:1B:E7:DD:A7:36:E5:37:41:B9:AF:C8:06:2E:33:8E:DF:CB:4C:CE:38:FF:69:B0:13:24:85"
+      ]
+    }
+  }
+]
