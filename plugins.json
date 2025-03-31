@@ -3,12 +3,6 @@
     "enabled": true,
     "plugins": [
       {
-        "embed_url": "https://embed.filmu.fun/embed/tmdb-{t}-{i}",
-        "name": "Flimu",
-        "stream_type": "api",
-        "tv_embed_url": "https://embed.filmu.fun/embed/tmdb-{t}-{i}/{s}/{e}"
-      },
-      {
         "embed_url": "https://vidsrc.vip/embed/{t}/{i}",
         "name": "vidsrc.dev",
         "stream_type": "webview",
