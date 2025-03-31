@@ -1,0 +1,37 @@
+{
+"Pluginsdb": {
+    "enabled": true,
+    "plugins": [
+      {
+        "embed_url": "https://embed.filmu.fun/embed/tmdb-{t}-{i}",
+        "name": "Flimu",
+        "stream_type": "api",
+        "tv_embed_url": "https://embed.filmu.fun/embed/tmdb-{t}-{i}/{s}/{e}"
+      },
+      {
+        "embed_url": "https://vidsrc.vip/embed/{t}/{i}",
+        "name": "vidsrc.dev",
+        "stream_type": "webview",
+        "tv_embed_url": "https://vidsrc.vip/embed/{t}/{i}/{s}/{e}"
+      },
+      {
+        "embed_url": "https://vidsrc.su/embed/{t}/{i}",
+        "name": "embed.su (recommended)",
+        "stream_type": "webview",
+        "tv_embed_url": "https://vidsrc.su/embed/{t}/{i}/{s}/{e}"
+      },
+      {
+        "embed_url": "https://vidsrc.cc/embed/{t}/{i}",
+        "name": "vidsrc.cc",
+        "stream_type": "webview",
+        "tv_embed_url": "https://vidsrc.cc/embed/{t}/{i}/{s}/{e}"
+      },
+      {
+        "embed_url": "https://vidlink.pro/{t}/{i}",
+        "name": "vidlink (premium)",
+        "stream_type": "Api",
+        "tv_embed_url": "https://vidlink.pro/{t}/{i}/{s}/{e}"
+      }
+    ]
+  }
+}
