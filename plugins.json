@@ -31,6 +31,12 @@
     "name": "vidsrc.xyz",
     "stream_type": "Api",
     "tv_embed_url": "https://vidsrc.net/embed/{t}/{i}/{s}-{e}"
+    },
+         {
+    "embed_url": "https://multiembed.mov/?video_id={i}&tmdb=1",
+    "name": "multiembed.mov",
+    "stream_type": "Api",
+    "tv_embed_url": "https://multiembed.mov/?video_id={i}&s={s}&e={e}&tmdb=1"
     }
     ]
   }
