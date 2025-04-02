@@ -27,10 +27,10 @@
         "tv_embed_url": "https://vidlink.pro/{t}/{i}/{s}/{e}"
       },
       {
-    "embed_url": "https://vidsrc.xyz/embed/{t}/{i}",
+    "embed_url": "https://vidsrc.net/embed/{t}/{i}",
     "name": "vidsrc.xyz",
     "stream_type": "Api",
-    "tv_embed_url": "https://vidsrc.xyz/embed/{t}/{i}/{s}-{e}"
+    "tv_embed_url": "https://vidsrc.net/embed/{t}/{i}/{s}-{e}"
     }
     ]
   }
