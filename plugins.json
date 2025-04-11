@@ -37,12 +37,6 @@
     "name": "multiembed.mov",
     "stream_type": "Api",
     "tv_embed_url": "https://multiembed.mov/?video_id={i}&s={s}&e={e}&tmdb=1"
-    },
-         {
-    "embed_url": "https://multiembed.mov/directstream.php?video_id={i}&tmdb=1",
-    "name": "multiembed.vip (VIP)",
-    "stream_type": "Api",
-    "tv_embed_url": "https://multiembed.mov/directstream.php?video_id={i}&s={s}&e={e}&tmdb=1"
     }
     ]
   }
