@@ -15,12 +15,6 @@
         "tv_embed_url": "https://vidsrc.su/embed/{t}/{i}/{s}/{e}"
       },
       {
-        "embed_url": "https://vidsrc.cc/embed/{t}/{i}",
-        "name": "vidsrc.cc",
-        "stream_type": "webview",
-        "tv_embed_url": "https://vidsrc.cc/embed/{t}/{i}/{s}/{e}"
-      },
-      {
         "embed_url": "https://vidlink.pro/{t}/{i}",
         "name": "vidlink (premium)",
         "stream_type": "Api",
