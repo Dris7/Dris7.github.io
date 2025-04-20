@@ -34,7 +34,7 @@
         },
        {
         "embed_url": "https://embed.su/embed/{t}/{i}",
-        "name": "embed.fire (premuim)",
+        "name": "embed.fire (recommended)",
         "stream_type": "webview",
         "tv_embed_url": "https://embed.su/embed/{t}/{i}/{s}/{e}"
        }   
