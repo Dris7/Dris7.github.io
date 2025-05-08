@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>DeepSeeAI</title>
+  <meta name="description" content="Your All-in-One AI Chatbot Solution" />
+  <meta property="og:title" content="DeepSeeAI" />
+  <meta property="og:description" content="Your All-in-One AI Chatbot Solution" />
+  <meta property="og:site_name" content="DeepSeeAI" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="DeepSeeAI" />
+  <meta name="twitter:description" content="Your All-in-One AI Chatbot Solution" />
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+      <!-- Animate.css -->
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- STYLES (copied from moflex.html for consistent design) -->
+  <style>
+    :root {
+      --primary: #11567E;
+      --primary-light: #1a6fa3;
+      --primary-dark: #0a3c59;
+      --primary-gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      --secondary: #2a9fd6;
+      --accent: #FFD700;
+      --background: #f8fafc;
+      --text: #334155;
+      --text-light: #64748b;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--background);
+      scroll-behavior: smooth;
+    }
+
+    /* Enhanced Header (fixed, transparent background, etc.) */
+    header {
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(17, 86, 126, 0.1);
+    }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-container img {
+            height: 45px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover img {
+            transform: scale(1.05);
+        }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Mobile Menu (hamburger) */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .bar {
+      width: 25px;
+      height: 3px;
+      background: var(--primary);
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        padding: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      nav ul.active {
+        display: flex;
+        flex-direction: column;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Hero-like Blue Banner */
+    .hero-blue {
+      min-height: 80vh;
+      background: linear-gradient(135deg, #1a6fa3 0%, #11567E 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-blue::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      transform: rotate(-45deg);
+      z-index: 1;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      z-index: 2;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 600px;
+      color: #fff;
+      text-align: left;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-text p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .hero-images {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .phone-mockup {
+      max-width: 85%;
+      object-fit: contain;
+      transform: perspective(1000px) rotateY(-15deg);
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+    }
+
+    .phone-mockup:hover {
+      transform: perspective(1000px) rotateY(-5deg) translateY(-10px);
+    }
+
+    /* Responsive design for hero */
+    @media (max-width: 968px) {
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-text p {
+        font-size: 1.1rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .phone-mockup {
+        max-width: 90%;
+        margin-top: 2rem;
+      }
+    }
+
+    /* Wrapper around main content */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+    }
+
+    /* Features Section */
+    #features {
+      background: #ffffff;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    #features .features-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    #features h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      padding: 2rem;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .feature-card h2 {
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* Models Section */
+    #models {
+      background: #f3f9fc;
+      padding: 5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .models-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .model-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .model-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    
+    .model-header {
+      background: var(--primary-gradient);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .model-header h3 {
+      margin: 0;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .model-content {
+      padding: 1.5rem;
+      flex: 1;
+    }
+    
+    .model-content h4 {
+      color: var(--primary);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    
+    .model-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .model-content li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
+    
+    .model-content li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* FAQ Section */
+    #faq {
+      background: #f3f3f3;
+      padding: 4rem 2rem;
+    }
+    #faq h1 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+    .faqs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .faq-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .faq-item p {
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 6rem 2rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-col h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .footer-col p {
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .footer-links {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links li a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links li a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-link {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 4rem;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .store-button {
+      transition: all 0.3s ease;
+      opacity: 0.9;
+    }
+
+    .store-button:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Social links footer */
+    .social-links a {
+      color: #f0f0f0;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-blue > div {
+        flex-direction: column-reverse !important;
+        text-align: center !important;
+      }
+
+      .hero-blue > div > div:first-child {
+        flex: 1 1 100% !important;
+      }
+
+      .hero-blue > div > div:last-child {
+        flex: 1 1 100% !important;
+      }
+      
+      .hero-blue img {
+        max-width: 100% !important;
+        height: auto !important;
+        margin-bottom: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero-blue a {
+        padding: 0.75rem 1rem !important;
+        font-size: 1rem !important;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+        <div class="logo-container">
+            <img src="./icon_all.png" alt="NerdsDev Logo" class="logo-img" />
+        </div>
+      <nav>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#models">AI Models</a></li>
+        <li><a href="#screenshots">Screenshots</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-blue">
+    <div class="hero-container">
+      <div class="hero-text">
+        <h1>Your All-in-One AI Chatbot Solution</h1>
+        <p>Experience the synergy of four cutting-edge AI models in one seamless platform. DeepSeeAI brings together the power of DeepSeek, ChatGPT, Gemini, and Claude to enhance your conversations.</p>
+        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+          <a href="https://play.google.com/store/apps/details?id=com.deep.seeai" class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            <svg style="width: 20px; height: 20px; vertical-align: middle;"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+              <!-- Google Play icon -->
+              <path fill="currentColor"
+                d="M1.25097 0.0664289C1.40622 -0.0227402 1.59729 -0.0220988 1.75194 0.0681106L9.59402 4.64266L7.16668 6.82726L1 1.27725V0.5C1 0.320967 1.09572 0.155598 1.25097 0.0664289Z">
+              </path>
+              <path fill="currentColor"
+                d="M1 2.62262V12.3773L6.41925 7.49994L1 2.62262Z">
+              </path>
+              <path fill="currentColor"
+                d="M1 13.7226V14.5C1 14.679 1.09572 14.8444 1.25097 14.9336C1.40622 15.0227 1.59729 15.0221 1.75194 14.9319L9.59409 10.3573L7.16668 8.17262L1 13.7226Z">
+              </path>
+              <path fill="currentColor"
+                d="M10.5011 9.82822L13.7519 7.93189C13.9055 7.84228 14 7.67783 14 7.5C14 7.32217 13.9055 7.15772 13.7519 7.06811L10.501 5.17173L7.9141 7.49994L10.5011 9.82822Z">
+              </path>
+            </svg>
+            Play Store
+          </a>
+          <a href="#" class="btn" style="background: transparent; border: 1px solid white; display: inline-flex; align-items: center; gap: 0.5rem;">
+            Learn More
+          </a>
+        </div>
+      </div>
+      <div class="hero-images">
+        <img src="./deepseeai1.webp" alt="DeepSeeAI Preview" class="phone-mockup" style="max-width: 300px; border-radius: 12px;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT WRAPPER -->
+  <div class="main-content">
+    <!-- SCREENSHOTS SECTION -->
+    <section id="screenshots" style="padding: 4rem 2rem; background: #f9f9f9;">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2 style="color: var(--primary); margin-bottom: 2rem;">App Screenshots</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem;">
+          <!-- Screenshot 1 -->
+          <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease; cursor: pointer;" 
+               onmouseover="this.style.transform='scale(1.03)'" 
+               onmouseout="this.style.transform='scale(1)'">
+            <img src="./deepseeai1.webp" alt="DeepSeeAI Screenshot 1" style="width: 100%; height: auto; border-radius: 10px;" />
+          </div>
+          
+          <!-- Screenshot 2 -->
+          <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease; cursor: pointer;" 
+               onmouseover="this.style.transform='scale(1.03)'" 
+               onmouseout="this.style.transform='scale(1)'">
+            <img src="./deepseeai2.webp" alt="DeepSeeAI Screenshot 2" style="width: 100%; height: auto; border-radius: 10px;" />
+          </div>
+          
+          <!-- Screenshot 3 -->
+          <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease; cursor: pointer;" 
+               onmouseover="this.style.transform='scale(1.03)'" 
+               onmouseout="this.style.transform='scale(1)'">
+            <img src="./deepseeai3.webp" alt="DeepSeeAI Screenshot 3" style="width: 100%; height: auto; border-radius: 10px;" />
+          </div>
+          
+          <!-- Screenshot 4 -->
+          <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease; cursor: pointer;" 
+               onmouseover="this.style.transform='scale(1.03)'" 
+               onmouseout="this.style.transform='scale(1)'">
+            <img src="./deepseeai4.webp" alt="DeepSeeAI Screenshot 4" style="width: 100%; height: auto; border-radius: 10px;" />
+          </div>
+          
+          <!-- Screenshot 5 -->
+          <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease; cursor: pointer;" 
+               onmouseover="this.style.transform='scale(1.03)'" 
+               onmouseout="this.style.transform='scale(1)'">
+            <img src="./deepseeai5.webp" alt="DeepSeeAI Screenshot 5" style="width: 100%; height: auto; border-radius: 10px;" />
+          </div>
+          
+          <!-- Screenshot 6 -->
+          <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease; cursor: pointer;" 
+               onmouseover="this.style.transform='scale(1.03)'" 
+               onmouseout="this.style.transform='scale(1)'">
+            <img src="./deepseeai6.webp" alt="DeepSeeAI Screenshot 6" style="width: 100%; height: auto; border-radius: 10px;" />
+          </div>
+          
+          <!-- Screenshot 7 -->
+          <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease; cursor: pointer;" 
+               onmouseover="this.style.transform='scale(1.03)'" 
+               onmouseout="this.style.transform='scale(1)'">
+            <img src="./deepseeai7.webp" alt="DeepSeeAI Screenshot 7" style="width: 100%; height: auto; border-radius: 10px;" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- MODELS SECTION -->
+    <section id="models">
+      <div class="models-header">
+        <h2>Meet Our AI Models</h2>
+        <p>DeepSeeAI integrates four state-of-the-art models, each designed to excel in different conversational contexts.</p>
+      </div>
+      
+      <div class="models-grid">
+        <div class="model-card">
+          <div class="model-header">
+            <h3>DeepSeek R1</h3>
+          </div>
+          <div class="model-content">
+            <h4>Research Assistant</h4>
+            <p>Comprehensive research assistance and data analysis.</p>
+            <ul>
+              <li>Detailed insights and summaries</li>
+              <li>Information retrieval</li>
+              <li>Data-driven research</li>
+              <li>Academic support</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="model-card">
+          <div class="model-header">
+            <h3>ChatGPT O1</h3>
+          </div>
+          <div class="model-content">
+            <h4>Everyday Conversations</h4>
+            <p>Fluid, human-like conversations for everyday use.</p>
+            <ul>
+              <li>Casual chats and discussions</li>
+              <li>Brainstorming creative ideas</li>
+              <li>Quick answers to questions</li>
+              <li>Natural and engaging dialogue</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="model-card">
+          <div class="model-header">
+            <h3>Gemini 2 Pro</h3>
+          </div>
+          <div class="model-content">
+            <h4>Creative Content</h4>
+            <p>Creative writing and content generation specialist.</p>
+            <ul>
+              <li>Enhanced storytelling</li>
+              <li>Marketing copy generation</li>
+              <li>Essay and content drafting</li>
+              <li>Contextual understanding</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="model-card">
+          <div class="model-header">
+            <h3>Claude.ai 3.5 Sonnet</h3>
+          </div>
+          <div class="model-content">
+            <h4>Specialized Tasks</h4>
+            <p>Poetry generation and advanced language processing.</p>
+            <ul>
+              <li>Beautiful poetry creation</li>
+              <li>Creative project refinement</li>
+              <li>Sophisticated language</li>
+              <li>Artistic writing assistance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2>Key Features</h2>
+        <p style="max-width: 700px; margin: 0 auto 3rem; color: var(--text-light);">
+          DeepSeeAI combines powerful functionality with an intuitive interface
+        </p>
+      
+        <div class="features-grid">
+          <div class="feature-card">
+            <img src="https://img.icons8.com/color/48/switch.png" alt="Model Switching Icon" style="width: 48px; height: auto; margin-bottom: 1rem;" />
+            <h3>Seamless Switching</h3>
+            <p>Effortlessly toggle between different AI models to find the perfect fit for your current task or conversation.</p>
+          </div>
+          
+          <div class="feature-card">
+            <img src="https://img.icons8.com/color/48/communication--v1.png" alt="Context Icon" style="width: 48px; height: auto; margin-bottom: 1rem;" />
+            <h3>Contextual Understanding</h3>
+            <p>Advanced AI models maintain context over extended interactions, ensuring coherent and meaningful dialogues every time.</p>
+          </div>
+          
+          <div class="feature-card">
+            <img src="https://img.icons8.com/fluency/48/settings.png" alt="Settings Icon" style="width: 48px; height: auto; margin-bottom: 1rem;" />
+            <h3>Customizable Settings</h3>
+            <p>Adjust parameters such as response length, creativity level, and more to tailor the AI's behavior to your preferences.</p>
+          </div>
+          
+          <div class="feature-card">
+            <img src="https://img.icons8.com/color/48/private.png" alt="Privacy Icon" style="width: 48px; height: auto; margin-bottom: 1rem;" />
+            <h3>Secure and Private</h3>
+            <p>Your data security is our priority. We use public APIs for AI models, ensuring we do not host or control any of your data.</p>
+          </div>
+          
+          <div class="feature-card">
+            <img src="https://img.icons8.com/color/48/000000/synchronize.png" alt="Updates Icon" style="width: 48px; height: auto; margin-bottom: 1rem;" />
+            <h3>Continuous Updates</h3>
+            <p>Stay ahead with regular updates that incorporate the latest advancements in AI technology.</p>
+          </div>
+          
+          <div class="feature-card">
+            <img src="https://img.icons8.com/color/48/idea.png" alt="Assistance Icon" style="width: 48px; height: auto; margin-bottom: 1rem;" />
+            <h3>Multiple Languages</h3>
+            <p>Support for English, French, Arabic, German and more languages coming soon to make AI accessible to everyone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq">
+      <h1>Frequently Asked Questions</h1>
+      <div class="faqs">
+        <div class="faq-item">
+          <h3>What is DeepSeeAI?</h3>
+          <p>DeepSeeAI is an all-in-one AI chatbot solution that brings together four advanced AI models—DeepSeek R1, ChatGPT O1, Gemini 2 Pro, and Claude.ai 3.5 Sonnet—in a single, user-friendly interface.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>How do I switch between AI models?</h3>
+          <p>Simply tap on the model selector at the top of the chat interface to choose the AI model that best suits your current needs or conversation.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Is my data secure?</h3>
+          <p>Yes, we prioritize your privacy. DeepSeeAI uses public APIs to interact with AI models and doesn't store your conversations. Your account management is securely handled through Firebase.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Which AI model should I use?</h3>
+          <p>Each model has its strengths: DeepSeek R1 for research, ChatGPT O1 for everyday conversations, Gemini 2 Pro for creative content, and Claude.ai 3.5 Sonnet for specialized tasks like poetry.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Do I need to pay for premium features?</h3>
+          <p>DeepSeeAI offers both free access and premium features through in-app purchases, giving you flexibility based on your needs.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>How often is the app updated?</h3>
+          <p>We regularly update DeepSeeAI to incorporate the latest AI advancements, improve performance, and add new features based on user feedback.</p>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- END .main-content -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h3>NerdsDev</h3>
+            <p>
+                Transforming ideas into exceptional digital experiences through innovative software development.
+            </p>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+              </div>
+        </div>
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#about">About Us</a></li>
+                <li><a href="/#projects">Other Projects</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <ul class="footer-links">
+                <li>Email: support@nerdsdev.pro</li>
+                <li>Business Inquiries: hello@nerdsdev.pro</li>
+                <li>Support: support@nerdsdev.pro</li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>
+            © <span id="current-year"></span> NerdsDev. All rights reserved.
+        </p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Mobile menu toggler
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav ul');
+
+    if(hamburger && nav){
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+
+    // Update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
