@@ -1,6 +1,6 @@
 {
     "Pluginsdb": {
-        "enabled": false,
+        "enabled": true,
         "plugins": [
           {
             "embed_url": "https://vidsrc.vip/embed/{t}/{i}",
