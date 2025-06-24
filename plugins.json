@@ -2,6 +2,12 @@
 "Pluginsdb": {
     "enabled": true,
     "plugins": [
+        {
+        "embed_url": "https://111movies.com/{t}/{i}?autoplay=1&theme=23ddc36c",
+        "name": "111movies (Fast)",
+        "stream_type": "webview",
+        "tv_embed_url": "https://111movies.com/{t}/{i}/{s}/{e}?autoplay=1&theme=23ddc36c",
+      }, 
      {
         "embed_url": "https://embed.su/embed/{t}/{i}",
         "name": "embed.fire (premium)",
