@@ -1163,6 +1163,28 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+        /* Global button style used outside the hero/contact form */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.9rem 1.6rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
  </style>
 </head>
 <body>
