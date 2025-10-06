@@ -1,6 +1,6 @@
 {
 "Pluginsdb": {
-    "enabled": false,
+    "enabled": true,
     "plugins": [
         {
         "embed_url": "https://111movies.com/{t}/{i}?autoplay=1&theme=23ddc36c",
