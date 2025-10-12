@@ -10,13 +10,13 @@
       }, 
         {
         "embed_url": "https://player.videasy.net/{t}/{i}",
-        "name": "vidsrc.cc (supports dub)",
+        "name": "videasy.net (supports dub)",
         "stream_type": "Api",
         "tv_embed_url": "https://player.videasy.net/{t}/{i}/{s}/{e}"
       },
      {
         "embed_url": "https://vidsrc.cc/v2/embed/{t}/{i}",
-        "name": "vidsrc.cc (premium)",
+        "name": "vidsrc.cc (supports sub)",
         "stream_type": "Api",
         "tv_embed_url": "https://vidsrc.cc/v2/embed/{t}/{i}/{s}/{e}"
       },
