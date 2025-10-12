@@ -8,7 +8,19 @@
         "stream_type": "webview",
         "tv_embed_url": "https://111movies.com/{t}/{i}/{s}/{e}?autoplay=1&theme=23ddc36c",
       }, 
+        {
+        "embed_url": "https://player.videasy.net/{t}/{i}",
+        "name": "vidsrc.cc (supports dub)",
+        "stream_type": "Api",
+        "tv_embed_url": "https://player.videasy.net/{t}/{i}/{s}/{e}"
+      },
      {
+        "embed_url": "https://vidsrc.cc/v2/embed/{t}/{i}",
+        "name": "vidsrc.cc (premium)",
+        "stream_type": "Api",
+        "tv_embed_url": "https://vidsrc.cc/v2/embed/{t}/{i}/{s}/{e}"
+      },
+        {
         "embed_url": "https://embed.su/embed/{t}/{i}",
         "name": "embed.fire (premium)",
         "stream_type": "webview",
