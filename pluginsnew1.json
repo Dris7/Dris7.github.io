@@ -1,0 +1,64 @@
+{
+"Pluginsdb": {
+    "enabled": true,
+    "plugins": [
+        {
+        "embed_url": "https://111movies.com/{t}/{i}?autoplay=1&theme=23ddc36c",
+        "name": "111movies (Fast)",
+        "stream_type": "webview",
+        "tv_embed_url": "https://111movies.com/{t}/{i}/{s}/{e}?autoplay=1&theme=23ddc36c",
+        "order": 1
+      }, 
+        {
+        "embed_url": "https://player.videasy.net/{t}/{i}",
+        "name": "videasy.net (supports dub)",
+        "stream_type": "Api",
+        "tv_embed_url": "https://player.videasy.net/{t}/{i}/{s}/{e}",
+        "order": 2
+      },
+     {
+        "embed_url": "https://vidsrc.cc/v2/embed/{t}/{i}",
+        "name": "vidsrc.cc (supports sub)",
+        "stream_type": "Api",
+        "tv_embed_url": "https://vidsrc.cc/v2/embed/{t}/{i}/{s}/{e}",
+        "order": 3
+      },
+        {
+        "embed_url": "https://embed.su/embed/{t}/{i}",
+        "name": "embed.fire (premium)",
+        "stream_type": "webview",
+        "tv_embed_url": "https://embed.su/embed/{t}/{i}/{s}/{e}",
+        "order": 4
+        
+      },
+      {
+        "embed_url": "https://vidsrc.vip/embed/{t}/{i}",
+        "name": "vidsrc.dev",
+        "stream_type": "webview",
+        "tv_embed_url": "https://vidsrc.vip/embed/{t}/{i}/{s}/{e}",
+        "order": 5
+      },
+      {
+        "embed_url": "https://vidsrc.su/embed/{t}/{i}",
+        "name": "embed.su (recommended)",
+        "stream_type": "webview",
+        "tv_embed_url": "https://vidsrc.su/embed/{t}/{i}/{s}/{e}",
+        "order": 6
+      },
+      {
+    "embed_url": "https://vidsrc.net/embed/{t}/{i}",
+    "name": "vidsrc.xyz",
+    "stream_type": "Api",
+    "tv_embed_url": "https://vidsrc.net/embed/{t}/{i}/{s}-{e}",
+    "order": 7
+    },
+         {
+    "embed_url": "https://multiembed.mov/?video_id={i}&tmdb=1",
+    "name": "multiembed.mov",
+    "stream_type": "Api",
+    "tv_embed_url": "https://multiembed.mov/?video_id={i}&s={s}&e={e}&tmdb=1",
+    "order": 8
+    }
+    ]
+  }
+}
