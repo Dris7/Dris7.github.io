@@ -1,7 +1,5 @@
 {
 "Pluginsdb": {
-    "enabled": false,
-    "downloads": false,
     "downloadServer": {
         "baseUrl": "https://dl.vidsrc.vip",
         "moviePath": "/movie/{id}",
