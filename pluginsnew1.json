@@ -1,7 +1,12 @@
 {
 "Pluginsdb": {
-    "enabled": false,
-    "downloads": false,
+    "enabled": true,
+    "downloads": true,
+    "downloadServer": {
+        "baseUrl": "https://dl.vidsrc.vip",
+        "moviePath": "/movie/{id}",
+        "tvPath": "/tv/{id}/{season}/{episode}"
+      },
     "plugins": [
         {
         "embed_url": "https://111movies.com/{t}/{i}?autoplay=1&theme=23ddc36c",
