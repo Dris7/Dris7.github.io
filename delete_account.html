@@ -34,6 +34,7 @@
             color: #555;
         }
         input[type="email"],
+        input[type="text"],
         select,
         textarea {
             padding: 10px;
@@ -83,7 +84,7 @@
         <h1>Delete Your PrimeMovie Account</h1>
         <form id="deleteAccountForm" action="#" method="POST">
             <label for="appName">App Name</label>
-            <input type="text" id="appName" name="appName" value="DeepSeeAI" readonly>
+            <input type="text" id="appName" name="appName" value="PrimeMovie" readonly>
 
             <label for="userEmail">Your Email</label>
             <input type="email" id="userEmail" name="userEmail" placeholder="you@example.com" required>
@@ -103,7 +104,7 @@
         </form>
 
         <div class="success-message" id="successMessage">
-            Your account deletion request has been sent successfully. We’re sorry to see you go!
+            Your account deletion request has been sent successfully. We're sorry to see you go!
         </div>
 
         <div class="error-message" id="errorMessage">
@@ -114,14 +115,10 @@
     </div>
 
     <script>
-        // This script handles the form submission for demonstration purposes.
-        // Replace the form handling with your backend integration as needed.
-
         document.getElementById('deleteAccountForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault();
 
-            // Simulate form processing
-            const success = true; // Change this based on actual processing result
+            const success = true;
 
             if (success) {
                 document.getElementById('successMessage').style.display = 'block';
